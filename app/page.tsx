@@ -2,8 +2,9 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Button } from "@/components/ui/button"
-import { Trophy, Users, Music, Heart } from "lucide-react"
+import { Trophy, Users, Heart, ArrowRight } from "lucide-react"
 import { Card } from "@/components/ui/card"
+import Link from "next/link"
 
 export default function HomePage() {
   return (
@@ -12,6 +13,7 @@ export default function HomePage() {
       <WhatsAppButton />
 
       <main className="min-h-screen">
+        {/* Hero Section */}
         <section className="relative min-h-[80vh] flex items-center justify-center overflow-hidden">
           <div className="absolute inset-0 bg-black/50 z-10" />
           <img
@@ -20,8 +22,12 @@ export default function HomePage() {
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="relative z-20 text-center text-white px-4">
-            <div className="mb-6">
-              <img src="/images/logo-sgranato.jpeg" alt="Open Dance Logo" className="w-32 h-32 mx-auto mb-4" />
+            <div className="mb-8 py-4">
+              <img
+                src="/images/logo-sgranato.jpeg"
+                alt="Open Dance Logo"
+                className="w-48 h-48 md:w-56 md:h-56 mx-auto object-contain drop-shadow-2xl"
+              />
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-6 leading-tight">
@@ -80,27 +86,27 @@ export default function HomePage() {
                   </div>
                   <div className="flex items-center gap-2 text-sm">
                     <Trophy size={16} className="text-primary" />
-                    <span className="font-medium">Crescita</span>
+                    <span className="font-medium">Eccellenza</span>
                   </div>
+                </div>
+
+                <div className="mt-6">
+                  <Link href="/chi-siamo">
+                    <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+                      Scopri di più
+                      <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </div>
               </div>
 
-              <div className="border-2 border-primary/20 rounded-lg overflow-hidden">
+              <div className="rounded-lg overflow-hidden shadow-xl">
                 <img
-                  src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                  alt="Giorgio Lagorio e sua moglie"
-                  className="w-full h-auto"
+                  src="/images/giorgio-lagorio-cristina-spinoni-insegnanti.jpg"
+                  alt="Giorgio Lagorio e Cristina Spinoni - Insegnanti Open Dance"
+                  className="w-full h-auto object-cover"
                 />
               </div>
-            </div>
-
-            <div className="mt-16 max-w-3xl mx-auto bg-accent/5 border border-accent/20 rounded-lg p-8">
-              <div className="flex items-center justify-center gap-3 mb-4">
-                <Music className="text-accent" size={32} />
-              </div>
-              <p className="text-xl md:text-2xl italic text-center text-foreground leading-relaxed">
-                "Il ballo è l'espressione più pura della gioia di vivere"
-              </p>
             </div>
           </div>
         </section>
@@ -121,7 +127,7 @@ export default function HomePage() {
             <div className="max-w-5xl mx-auto">
               <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <img
-                  src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
+                  src="/images/gruppo-ben-vestito.jpeg"
                   alt="I nostri allievi Open Dance ASD"
                   className="w-full h-auto object-cover"
                 />
@@ -153,7 +159,7 @@ export default function HomePage() {
             <div className="max-w-5xl mx-auto mb-12">
               <div className="relative rounded-lg overflow-hidden shadow-xl">
                 <img
-                  src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
+                  src="/images/corso-gruppo.jpeg"
                   alt="Lezione di ballo liscio Open Dance"
                   className="w-full h-auto object-cover"
                 />
@@ -195,9 +201,9 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
                   >
-                    Richiedi info per partecipare →
+                    <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                   </Button>
                 </div>
               </Card>
@@ -236,9 +242,9 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
                   >
-                    Richiedi info per partecipare →
+                    <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                   </Button>
                 </div>
               </Card>
@@ -277,9 +283,9 @@ export default function HomePage() {
                   <Button
                     variant="outline"
                     size="sm"
-                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+                    className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
                   >
-                    Richiedi info per partecipare →
+                    <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                   </Button>
                 </div>
               </Card>

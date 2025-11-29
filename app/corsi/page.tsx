@@ -140,7 +140,7 @@ export default function CorsiPage() {
                           </li>
                         </ul>
                         <Button
-                          className="w-full text-xs bg-transparent"
+                          className="w-full text-xs bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
                           size="sm"
                           variant="outline"
                           onClick={(e) => {
@@ -148,7 +148,7 @@ export default function CorsiPage() {
                             window.open("https://wa.me/YOUR_NUMBER", "_blank")
                           }}
                         >
-                          Richiedi info per partecipare
+                          <span className="text-balance leading-tight">Richiedi info per partecipare</span>
                         </Button>
                       </div>
                     </Card>
@@ -156,22 +156,6 @@ export default function CorsiPage() {
                 )
               })}
             </div>
-          </div>
-        </section>
-
-        {/* Privacy Note */}
-        <section className="py-12 bg-background">
-          <div className="container mx-auto px-4 text-center max-w-3xl">
-            <Card className="p-6 bg-accent/10 border-accent/20">
-              <h3 className="text-xl font-normal mb-3 text-foreground">Informazioni su Prezzi e Orari</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed mb-3">
-                Per conoscere i prezzi dei corsi, gli orari delle lezioni e tutte le informazioni dettagliate,
-                contattaci direttamente su WhatsApp o vieni a trovarci in sede.
-              </p>
-              <p className="text-xs text-muted-foreground">
-                Rispettiamo la tua privacy e preferiamo fornirti informazioni personalizzate in base alle tue esigenze.
-              </p>
-            </Card>
           </div>
         </section>
       </main>

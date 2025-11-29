@@ -20,8 +20,8 @@ export function Navigation() {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3 group">
+        <div className="flex items-center justify-center h-20 relative">
+          <Link href="/" className="absolute left-0 flex items-center gap-3 group">
             <div className="h-10 flex items-center justify-center">
               <Image
                 src="/logo-open-dance-full.jpeg"
@@ -44,11 +44,18 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground ml-4">Diventa Socio</Button>
+          </div>
+
+          <div className="hidden md:block absolute right-0">
+            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Diventa Socio</Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button className="md:hidden text-foreground" onClick={() => setIsOpen(!isOpen)} aria-label="Toggle menu">
+          <button
+            className="md:hidden absolute right-0 text-foreground"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="Toggle menu"
+          >
             {isOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>

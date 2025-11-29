@@ -10,36 +10,27 @@ import { useState } from "react"
 
 export default function ChiSiamoPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
-  const [agonistiImageIndex, setAgonistiImageIndex] = useState(0)
 
   const foundersImages = [
     {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
-      alt: "Giorgio Lagorio e sua moglie con trofeo",
+      src: "/images/giorgio-moglie.jpeg",
+      alt: "Giorgio e sua moglie con trofeo Open Dance",
     },
     {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
+      src: "/images/giorgio-moglie-3.jpeg",
       alt: "Giorgio e sua moglie in abito turchese",
     },
     {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
+      src: "/images/giorgio-molgie-3.jpeg",
       alt: "Giorgio e sua moglie in competizione - abito bianco",
     },
     {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
-      alt: "Giorgio e sua moglie in gara - abito nero",
-    },
-    {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
+      src: "/images/giorgio-moglie-1.jpeg",
       alt: "Giorgio e sua moglie - close-up elegante",
     },
     {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
-      alt: "Giorgio e sua moglie - foto in bianco e nero",
-    },
-    {
-      src: "/images/whatsapp-20image-202025-11-28-20at-2017.jpeg",
-      alt: "Giorgio e sua moglie - abito viola e bianco",
+      src: "/images/giorgio-moglie-2.jpeg",
+      alt: "Giorgio e sua moglie in gara - abito nero",
     },
   ]
 
@@ -49,14 +40,6 @@ export default function ChiSiamoPage() {
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + foundersImages.length) % foundersImages.length)
-  }
-
-  const nextAgonistiImage = () => {
-    setAgonistiImageIndex((prev) => (prev + 1) % 3)
-  }
-
-  const prevAgonistiImage = () => {
-    setAgonistiImageIndex((prev) => (prev - 1 + 3) % 3)
   }
 
   return (
@@ -69,8 +52,8 @@ export default function ChiSiamoPage() {
         <section className="relative pt-20 pb-12 bg-gradient-to-b from-accent/10 to-background">
           <div className="absolute inset-0 bg-black/50 z-10" />
           <img
-            src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-            alt="Giorgio Lagorio e sua moglie"
+            src="/images/giorgio-lagorio-cristina-spinoni.jpeg"
+            alt="Giorgio Lagorio e Cristina Spinoni"
             className="absolute inset-0 w-full h-full object-cover"
           />
           <div className="relative z-20 text-center text-white px-4">
@@ -272,8 +255,8 @@ export default function ChiSiamoPage() {
                 <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
                   <div className="aspect-video relative bg-accent/10">
                     <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                      alt="Gruppo di allievi Open Dance in festa"
+                      src="/images/gruppo-cena.jpeg"
+                      alt="Gruppo cena - Eventi e Feste Open Dance"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -289,7 +272,7 @@ export default function ChiSiamoPage() {
                 <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
                   <div className="aspect-video relative bg-accent/10">
                     <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
+                      src="/images/gruppo-fermo.jpeg"
                       alt="Lezioni di gruppo Open Dance"
                       className="w-full h-full object-cover"
                     />
@@ -308,8 +291,8 @@ export default function ChiSiamoPage() {
                 <Card className="overflow-hidden border border-primary/20">
                   <div className="aspect-square relative bg-accent/10">
                     <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                      alt="Corso principianti"
+                      src="/images/gruppo-halloween.jpeg"
+                      alt="Festa Halloween"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -317,19 +300,15 @@ export default function ChiSiamoPage() {
 
                 <Card className="overflow-hidden border border-primary/20">
                   <div className="aspect-square relative bg-accent/10">
-                    <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                      alt="Lezione avanzata"
-                      className="w-full h-full object-cover"
-                    />
+                    <img src="/images/corso-gruppo.jpeg" alt="Corso di gruppo" className="w-full h-full object-cover" />
                   </div>
                 </Card>
 
                 <Card className="overflow-hidden border border-primary/20">
                   <div className="aspect-square relative bg-accent/10">
                     <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                      alt="Festa associazione"
+                      src="/images/gruppo-ben-vestito.jpeg"
+                      alt="Gruppo in abito elegante"
                       className="w-full h-full object-cover"
                     />
                   </div>
@@ -339,67 +318,447 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        <section className="py-16 bg-accent/5">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+        {/* Agonisti Section */}
+        <section className="py-16 bg-accent/5 overflow-hidden">
+          <div className="container mx-auto px-4 mb-12">
+            <div className="text-center">
               <p className="text-xs uppercase tracking-wider mb-3 text-primary">ECCELLENZA</p>
               <h2 className="text-3xl md:text-4xl font-normal mb-4">I Nostri Agonisti</h2>
               <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-                Gli atleti che rappresentano Open Dance ASD nelle competizioni nazionali e internazionali, portando alto
-                il nome della nostra scuola.
+                Gli atleti che rappresentano Open Dance ASD nelle competizioni nazionali e internazionali
               </p>
             </div>
+          </div>
 
-            <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-                <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
-                  <div className="aspect-video relative bg-accent/10">
-                    <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                      alt="Agonisti Open Dance in formazione"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-card-foreground">Preparazione Agonistica</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      Allenamenti intensivi e specializzati per chi vuole competere ai massimi livelli nel ballo
-                      sportivo.
-                    </p>
-                  </CardContent>
-                </Card>
-
-                <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
-                  <div className="aspect-video relative bg-accent/10">
-                    <img
-                      src="/images/whatsapp-20image-202025-11-28-20at-2017.jpeg"
-                      alt="Team agonistico Open Dance"
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold mb-2 text-card-foreground">Competizioni e Successi</h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      I nostri atleti partecipano regolarmente a gare nazionali e internazionali, conquistando numerosi
-                      premi e riconoscimenti.
-                    </p>
-                  </CardContent>
-                </Card>
+          <div className="relative">
+            <div className="flex animate-scroll-left">
+              {/* First set of images */}
+              <div className="flex gap-6 px-3">
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/claudio-bertoldi-simonetta-sironi.jpg"
+                        alt="Claudio Bertoldi e Simonetta Sironi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Claudio Bertoldi e Simonetta Sironi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/claudio-corsini-fausta-pedroni.jpeg"
+                        alt="Claudio Corsini e Fausta Pedroni"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Claudio Corsini e Fausta Pedroni</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabio-maranta-monica-antonelli.jpg"
+                        alt="Fabio Maranta e Monica Antonelli"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabio Maranta e Monica Antonelli</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabio-martini-marisa-barucchelli.jpg"
+                        alt="Fabio Martini e Marisa Barucchelli"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabio Martini e Marisa Barucchelli</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabio-pantano-jennifer-rosa.jpg"
+                        alt="Fabio Pantano e Jennifer Rosa"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabio Pantano e Jennifer Rosa</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabrizio-bonassi-paola-premoli.jpg"
+                        alt="Fabrizio Bonassi e Paola Premoli"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabrizio Bonassi e Paola Premoli</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabrizio-ragni-claudia-delaini.jpg"
+                        alt="Fabrizio Ragni e Claudia Delaini"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabrizio Ragni e Claudia Delaini</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/giuseppe-franzoni-elisabetta-volpi.jpg"
+                        alt="Giuseppe Franzoni e Elisabetta Volpi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Giuseppe Franzoni e Elisabetta Volpi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/giuseppe-massarotto-rosalia-guerra.jpg"
+                        alt="Giuseppe Massarotto e Rosalia Guerra"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Giuseppe Massarotto e Rosalia Guerra</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/collage.jpeg"
+                        alt="Massimo Zucchi e Alessandra Bresciani"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Massimo Zucchi e Alessandra Bresciani</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/michele-turla-dalida-turla.jpg"
+                        alt="Michele Turla e Dalida Turla"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Michele Turla e Dalida Turla</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/renato-mombelli-silvia-volpi.jpeg"
+                        alt="Renato Mombelli e Silvia Volpi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Renato Mombelli e Silvia Volpi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/roberto-bonfadini-patrizia-bracchi.jpg"
+                        alt="Roberto Bonfadini e Patrizia Bracchi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Roberto Bonfadini e Patrizia Bracchi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/sergio-franceschetti-giuliana-bersini.jpg"
+                        alt="Sergio Franceschetti e Giuliana Bersini"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Sergio Franceschetti e Giuliana Bersini</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/tiziano-mora-silvia-santoni.jpg"
+                        alt="Tiziano Mora e Silvia Santoni"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Tiziano Mora e Silvia Santoni</p>
+                    </div>
+                  </Card>
+                </div>
               </div>
 
-              <Card className="bg-primary/5 border-primary/20">
-                <CardContent className="p-8 text-center">
-                  <Users className="mx-auto mb-4 text-primary" size={48} />
-                  <h3 className="text-2xl font-bold mb-3 text-card-foreground">Diventa un Agonista</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-6">
-                    Se hai la passione e la determinazione per competere, il nostro team agonistico ti aspetta.
-                    Preparati a vivere l'emozione delle competizioni e a far parte di una squadra vincente.
-                  </p>
-                  <Button size="lg" className="font-medium">
-                    Scopri di più
-                  </Button>
-                </CardContent>
-              </Card>
+              {/* Duplicate set for seamless infinite loop */}
+              <div className="flex gap-6 px-3">
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/claudio-bertoldi-simonetta-sironi.jpg"
+                        alt="Claudio Bertoldi e Simonetta Sironi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Claudio Bertoldi e Simonetta Sironi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/claudio-corsini-fausta-pedroni.jpeg"
+                        alt="Claudio Corsini e Fausta Pedroni"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Claudio Corsini e Fausta Pedroni</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabio-maranta-monica-antonelli.jpg"
+                        alt="Fabio Maranta e Monica Antonelli"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabio Maranta e Monica Antonelli</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabio-martini-marisa-barucchelli.jpg"
+                        alt="Fabio Martini e Marisa Barucchelli"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabio Martini e Marisa Barucchelli</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabio-pantano-jennifer-rosa.jpg"
+                        alt="Fabio Pantano e Jennifer Rosa"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabio Pantano e Jennifer Rosa</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabrizio-bonassi-paola-premoli.jpg"
+                        alt="Fabrizio Bonassi e Paola Premoli"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabrizio Bonassi e Paola Premoli</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/fabrizio-ragni-claudia-delaini.jpg"
+                        alt="Fabrizio Ragni e Claudia Delaini"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Fabrizio Ragni e Claudia Delaini</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/giuseppe-franzoni-elisabetta-volpi.jpg"
+                        alt="Giuseppe Franzoni e Elisabetta Volpi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Giuseppe Franzoni e Elisabetta Volpi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/giuseppe-massarotto-rosalia-guerra.jpg"
+                        alt="Giuseppe Massarotto e Rosalia Guerra"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Giuseppe Massarotto e Rosalia Guerra</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/collage.jpeg"
+                        alt="Massimo Zucchi e Alessandra Bresciani"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Massimo Zucchi e Alessandra Bresciani</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/michele-turla-dalida-turla.jpg"
+                        alt="Michele Turla e Dalida Turla"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Michele Turla e Dalida Turla</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/renato-mombelli-silvia-volpi.jpeg"
+                        alt="Renato Mombelli e Silvia Volpi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Renato Mombelli e Silvia Volpi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/roberto-bonfadini-patrizia-bracchi.jpg"
+                        alt="Roberto Bonfadini e Patrizia Bracchi"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Roberto Bonfadini e Patrizia Bracchi</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/sergio-franceschetti-giuliana-bersini.jpg"
+                        alt="Sergio Franceschetti e Giuliana Bersini"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Sergio Franceschetti e Giuliana Bersini</p>
+                    </div>
+                  </Card>
+                </div>
+                <div className="flex-shrink-0 w-[280px]">
+                  <Card className="overflow-hidden border-2 border-primary/20">
+                    <div className="aspect-[3/4] relative">
+                      <img
+                        src="/images/gallery/tiziano-mora-silvia-santoni.jpg"
+                        alt="Tiziano Mora e Silvia Santoni"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+                    <div className="p-4 bg-card text-center">
+                      <p className="text-sm italic text-muted-foreground">Tiziano Mora e Silvia Santoni</p>
+                    </div>
+                  </Card>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -569,7 +928,7 @@ export default function ChiSiamoPage() {
                       strokeLinecap="round"
                       strokeLinejoin="round"
                       strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
                     />
                   </svg>
                 </div>
