@@ -61,11 +61,7 @@ export function Footer() {
                   Le Attività
                 </Link>
               </li>
-              <li>
-                <Link href="/galleria" className="text-muted-foreground hover:text-primary transition-colors">
-                  Vita Associativa
-                </Link>
-              </li>
+              
               <li>
                 <Link href="/contatti" className="text-muted-foreground hover:text-primary transition-colors">
                   Contatti

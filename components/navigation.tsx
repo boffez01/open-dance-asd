@@ -13,7 +13,6 @@ export function Navigation() {
     { href: "/", label: "Home" },
     { href: "/chi-siamo", label: "Chi Siamo" },
     { href: "/corsi", label: "Le Attività" },
-    { href: "/galleria", label: "Vita Associativa" },
     { href: "/contatti", label: "Contatti" },
   ]
 
