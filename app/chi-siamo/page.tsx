@@ -3,17 +3,16 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
-// Import corretti inclusi CardContent
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Heart, Users, Trophy, ChevronLeft, ChevronRight, Star, Medal, CheckCircle2 } from "lucide-react"
+import { Heart, Users, Trophy, ChevronLeft, ChevronRight, Medal, CheckCircle2 } from "lucide-react"
 import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 
 export default function ChiSiamoPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
-  // Immagini dei fondatori AGGIORNATE con le nuove foto caricate
+  // Immagini dei fondatori
   const foundersImages = [
     {
       src: "/images/gallery/giorgio_moglie_7.jpg",
@@ -31,7 +30,6 @@ export default function ChiSiamoPage() {
       src: "/images/gallery/giorgio_moglie_4.jpg",
       alt: "Giorgio e Cristina - Eleganza",
     },
-    // Le tue foto originali
     {
       src: "/images/giorgio-moglie.jpeg",
       alt: "Giorgio e sua moglie con trofeo Open Dance",
@@ -54,7 +52,7 @@ export default function ChiSiamoPage() {
     },
   ]
 
-  // Animazione automatica ogni 2 SECONDI (2000ms)
+  // Animazione automatica ogni 2 SECONDI
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % foundersImages.length)
@@ -62,7 +60,7 @@ export default function ChiSiamoPage() {
     return () => clearInterval(timer)
   }, [foundersImages.length])
 
-  // LISTA AGONISTI (Invariata)
+  // LISTA AGONISTI
   const agonisti = [
     {
       name: "Claudio Bertoldi e Simonetta Sironi",
@@ -134,14 +132,12 @@ export default function ChiSiamoPage() {
     setCurrentImageIndex((prev) => (prev - 1 + foundersImages.length) % foundersImages.length)
   }
 
-  // Funzione per aprire WhatsApp
   const handleContactClick = () => {
-    const phoneNumber = "393936631959" // Sostituisci con il numero reale
+    const phoneNumber = "393936631959"
     const message = encodeURIComponent("Ciao! Vorrei avere informazioni su Open Dance ASD.")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
 
-  // Varianti Animazioni Framer Motion
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -271,7 +267,6 @@ export default function ChiSiamoPage() {
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 
-                {/* TESTO COMPLETO E FORMATTATO */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
@@ -330,7 +325,6 @@ export default function ChiSiamoPage() {
                   </motion.div>
                 </motion.div>
 
-                {/* Carousel con Animazione di Dissolvenza */}
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -340,7 +334,6 @@ export default function ChiSiamoPage() {
                 >
                   <Card className="overflow-hidden border-2 border-primary/20 bg-background shadow-xl">
                     <div className="aspect-[3/4] relative overflow-hidden">
-                      {/* Aggiunta AnimatePresence per gestire la transizione di uscita */}
                       <AnimatePresence mode="wait">
                         <motion.img
                           key={currentImageIndex}
@@ -354,7 +347,6 @@ export default function ChiSiamoPage() {
                         />
                       </AnimatePresence>
 
-                      {/* Navigation Arrows */}
                       <button
                         onClick={prevImage}
                         className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
@@ -371,14 +363,12 @@ export default function ChiSiamoPage() {
                         <ChevronRight className="text-foreground" size={24} />
                       </button>
 
-                      {/* Image Counter */}
                       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/90 px-4 py-2 rounded-full text-xs font-medium z-10">
                         {currentImageIndex + 1} / {foundersImages.length}
                       </div>
                     </div>
                   </Card>
 
-                  {/* Dots Indicator */}
                   <div className="flex justify-center gap-2 mt-4">
                     {foundersImages.map((_, index) => (
                       <button
@@ -397,7 +387,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* 1. SEZIONE ALLIEVI (Prima degli agonisti) */}
+        {/* 1. SEZIONE ALLIEVI */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -477,7 +467,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* 2. SEZIONE AGONISTI (Dopo gli allievi) */}
+        {/* 2. SEZIONE AGONISTI */}
         <section className="py-16 bg-accent/5 overflow-hidden">
           <div className="container mx-auto px-4 mb-12">
             <div className="text-center">
@@ -489,7 +479,28 @@ export default function ChiSiamoPage() {
             </div>
           </div>
 
-          <div className="relative w-full overflow-hidden">
+          {/* VISUALIZZAZIONE MOBILE: SCROLL NATIVO (Swipe Destra/Sinistra) */}
+          <div className="md:hidden flex overflow-x-auto gap-4 px-4 pb-8 snap-x no-scrollbar">
+            {agonisti.map((coppia, index) => (
+              <div key={index} className="flex-shrink-0 w-[260px] snap-center">
+                <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
+                  <div className="aspect-[3/4] relative">
+                    <img
+                      src={coppia.image}
+                      alt={coppia.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <div className="p-4 bg-card text-center">
+                    <p className="text-sm italic text-muted-foreground font-medium">{coppia.name}</p>
+                  </div>
+                </Card>
+              </div>
+            ))}
+          </div>
+
+          {/* VISUALIZZAZIONE DESKTOP: ANIMAZIONE LOOP (Invariata) */}
+          <div className="hidden md:block relative w-full overflow-hidden">
             <div className="flex animate-scroll-left hover:[animation-play-state:paused]">
               {/* Loop principale */}
               <div className="flex gap-6 px-3">
@@ -497,7 +508,6 @@ export default function ChiSiamoPage() {
                   <div key={index} className="flex-shrink-0 w-[280px]">
                     <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
                       <div className="aspect-[3/4] relative">
-                        {/* Se l'immagine non carica, controlliamo che il percorso nel file corrisponda esattamente */}
                         <img
                           src={coppia.image}
                           alt={coppia.name}
@@ -553,7 +563,6 @@ export default function ChiSiamoPage() {
                   Il ballo è la nostra vita e vogliamo condividere questa passione con te.
                 </p>
               </Card>
-
               <Card className="p-6 bg-card border border-border text-center hover:shadow-md transition-all">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="text-primary" size={24} />
@@ -566,7 +575,6 @@ export default function ChiSiamoPage() {
                   Accogliamo ballerini di ogni età creando un ambiente dove tutti si sentono a casa.
                 </p>
               </Card>
-
               <Card className="p-6 bg-card border border-border text-center hover:shadow-md transition-all">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Trophy className="text-primary" size={24} />
@@ -583,7 +591,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* FAQ Section - DESIGN CON ANIMAZIONI & ORARI AGGIORNATI */}
+        {/* FAQ Section */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-5xl">
             <motion.div 
