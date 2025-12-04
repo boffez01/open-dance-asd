@@ -136,7 +136,7 @@ export default function ChiSiamoPage() {
 
   // Funzione per aprire WhatsApp
   const handleContactClick = () => {
-    const phoneNumber = "393401234567" // Sostituisci con il numero reale
+    const phoneNumber = "393936631959" // Sostituisci con il numero reale
     const message = encodeURIComponent("Ciao! Vorrei avere informazioni su Open Dance ASD.")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }

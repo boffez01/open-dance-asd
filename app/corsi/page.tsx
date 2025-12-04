@@ -19,7 +19,7 @@ export default function CorsiPage() {
       color: "bg-primary/10 text-primary",
     },
     {
-      title: "Ballo da Sala & Boogie Woogie",
+      title: "Boogie Woogie",
       level: "Social Dance",
       description: "Ideale per chi frequenta sale da ballo, feste, sagre e desidera aggiungere ulteriore divertimento con ritmi dinamici.",
       icon: Music,

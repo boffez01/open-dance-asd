@@ -204,8 +204,8 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-card-foreground">Ballo Liscio - Avviamento</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Attività dedicata ai soci che desiderano avvicinarsi al mondo del ballo liscio. Un percorso graduale
-                    per imparare i passi base di mazurka, polka e valzer.
+                    Attività dedicata ai soci che desiderano avvicinarsi al mondo del ballo liscio e da sala. Un percorso graduale
+                    per imparare i passi base.
                   </p>
                   <ul className="text-xs text-muted-foreground space-y-2 mb-4">
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Passi base</span></li>
