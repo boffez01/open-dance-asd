@@ -11,13 +11,13 @@ export function Footer() {
             <div className="flex items-center gap-3 mb-4">
               {/* Logo Sostituito Qui */}
               <div className="h-14 w-14 relative flex-shrink-0 bg-white rounded-full p-1 overflow-hidden flex items-center justify-center border border-border">
-                 <img 
-                  src="/images/logo-sgranato.jpeg" 
-                  alt="Open Dance Logo" 
+                <img
+                  src="/images/logo-sgranato.jpeg"
+                  alt="Open Dance Logo"
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>
-              
+
               <div>
                 <h3 className="text-xl font-semibold leading-none">Open Dance</h3>
                 <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">ASD</div>
@@ -44,6 +44,16 @@ export function Footer() {
               >
                 <Instagram size={20} className="text-accent" />
               </a>
+              <a
+                href="https://www.tiktok.com/@opendanceasd?is_from_webapp=1&sender_device=pc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors"
+              >
+                <svg className="w-5 h-5 text-accent" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                </svg>
+              </a>
             </div>
           </div>
 
@@ -61,10 +71,20 @@ export function Footer() {
                   Le Attività
                 </Link>
               </li>
-              
+
               <li>
                 <Link href="/contatti" className="text-muted-foreground hover:text-primary transition-colors">
                   Contatti
+                </Link>
+              </li>
+              <li>
+                <Link href="/privacy-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <Link href="/cookie-policy" className="text-muted-foreground hover:text-primary transition-colors">
+                  Cookie Policy
                 </Link>
               </li>
             </ul>
@@ -118,6 +138,17 @@ export function Footer() {
           </p>
           <p className="text-xs text-muted-foreground mt-2">
             Associazione Sportiva Dilettantistica iscritta al Registro CONI
+          </p>
+          <p className="text-xs text-muted-foreground mt-3">
+            Sito costruito da{" "}
+            <a
+              href="https://www.praxisfutura.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:underline font-medium"
+            >
+              Praxis Futura
+            </a>
           </p>
         </div>
       </div>

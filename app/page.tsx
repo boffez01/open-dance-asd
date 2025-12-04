@@ -4,12 +4,11 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Button } from "@/components/ui/button"
-import { Trophy, Users, Heart, ArrowRight, Facebook, Clock, Lightbulb, HelpCircle, Info, LogIn, Star, Music } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
+import { Trophy, Users, Heart, ArrowRight, Clock, Lightbulb, HelpCircle, Info, LogIn, Star, Music } from "lucide-react"
+import { Card } from "@/components/ui/card"
 import Link from "next/link"
 
 export default function HomePage() {
-  
   const handleSocioClick = () => {
     const phoneNumber = "393936631959"
     const message = encodeURIComponent("Ciao! Vorrei sapere come diventare socio.")
@@ -31,7 +30,6 @@ export default function HomePage() {
             className="absolute inset-0 w-full h-full object-cover animate-in fade-in duration-1000 scale-105"
           />
           <div className="relative z-20 text-center text-white px-4">
-            
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-normal mb-6 leading-tight animate-in slide-in-from-bottom-8 duration-1000">
               <span className="text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] font-semibold tracking-wide">
                 La passione ci unisce,
@@ -48,8 +46,8 @@ export default function HomePage() {
 
             <div className="animate-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
               {/* MODIFICATO: Apre WhatsApp invece di linkare a contatti */}
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 onClick={handleSocioClick}
                 className="bg-black hover:bg-black/80 text-white transition-transform hover:scale-105"
               >
@@ -127,8 +125,8 @@ export default function HomePage() {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl md:text-4xl font-serif font-bold mb-4">Danza per Tutte le Età</h2>
             <p className="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed font-medium">
-              Dai bambini ai ragazzi, fino agli adulti e senior. <br/>
-              I nostri corsi sono pensati per accogliere ballerini di ogni generazione.
+              Dai bambini ai ragazzi, fino agli adulti e senior. <br />I nostri corsi sono pensati per accogliere
+              ballerini di ogni generazione.
             </p>
           </div>
         </section>
@@ -161,10 +159,7 @@ export default function HomePage() {
                   diventa parte della famiglia Open Dance!
                 </p>
                 {/* MODIFICATO: Unisciti a Noi ora apre WhatsApp come Diventa Socio */}
-                <Button 
-                  onClick={handleSocioClick}
-                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                >
+                <Button onClick={handleSocioClick} className="bg-primary hover:bg-primary/90 text-primary-foreground">
                   Unisciti a Noi
                 </Button>
               </div>
@@ -176,7 +171,7 @@ export default function HomePage() {
         <section className="py-16 bg-accent/5">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
-              <p className="text-xs uppercase tracking-wider mb-3 text-primary">LE ATTIVITÀ</p>
+              <p className="text-xs uppercase tracking-wider font-bold mb-3 text-primary">LE ATTIVITÀ</p>
               <h2 className="text-3xl md:text-4xl font-normal mb-4">
                 Attività riservate ai <span className="text-primary italic">nostri soci</span>
               </h2>
@@ -204,17 +199,30 @@ export default function HomePage() {
                   </div>
                   <h3 className="text-lg font-bold mb-2 text-card-foreground">Ballo Liscio - Avviamento</h3>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Attività dedicata ai soci che desiderano avvicinarsi al mondo del ballo liscio e da sala. Un percorso graduale
-                    per imparare i passi base.
+                    Attività dedicata ai soci che desiderano avvicinarsi al mondo del ballo liscio e da sala. Un
+                    percorso graduale per imparare i passi base.
                   </p>
                   <ul className="text-xs text-muted-foreground space-y-2 mb-4">
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Passi base</span></li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Ritmo e musicalità</span></li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Portamento</span></li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Passi base</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Ritmo e musicalità</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Portamento</span>
+                    </li>
                   </ul>
                   {/* MODIFICATO: Link a Contatti */}
                   <Link href="/contatti">
-                    <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
+                    >
                       <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                     </Button>
                   </Link>
@@ -232,13 +240,26 @@ export default function HomePage() {
                     interpretazione musicale.
                   </p>
                   <ul className="text-xs text-muted-foreground space-y-2 mb-4">
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Figure avanzate</span></li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Stile personale</span></li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Coreografie</span></li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Figure avanzate</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Stile personale</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Coreografie</span>
+                    </li>
                   </ul>
                   {/* MODIFICATO: Link a Contatti */}
                   <Link href="/contatti">
-                    <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
+                    >
                       <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                     </Button>
                   </Link>
@@ -256,13 +277,26 @@ export default function HomePage() {
                     insieme e consolidare quanto appreso.
                   </p>
                   <ul className="text-xs text-muted-foreground space-y-2 mb-4">
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Pratica libera</span></li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Preparazione gare</span></li>
-                    <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Socializzazione</span></li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Pratica libera</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Preparazione gare</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <span className="text-primary mt-0.5">•</span>
+                      <span>Socializzazione</span>
+                    </li>
                   </ul>
                   {/* MODIFICATO: Link a Contatti */}
                   <Link href="/contatti">
-                    <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center"
+                    >
                       <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                     </Button>
                   </Link>
@@ -279,7 +313,7 @@ export default function HomePage() {
               <h2 className="text-3xl md:text-4xl font-normal mb-4">I Nostri Stili nel Dettaglio</h2>
               <p className="text-muted-foreground">Approfondisci cosa imparerai nei nostri corsi</p>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
               <Card className="p-6 bg-card hover:shadow-lg transition-all border-l-4 border-l-purple-500">
                 <div className="w-12 h-12 bg-purple-500/10 rounded-full flex items-center justify-center mb-4 text-purple-600">
@@ -324,53 +358,69 @@ export default function HomePage() {
           </div>
         </section>
 
-       {/* Vita Associativa - SOLO FACEBOOK CON FEED REALE */}
+        {/* Vita Associativa - SOCIAL MEDIA */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center mb-12">
               <div className="inline-block border-b-2 border-accent pb-1 mb-4">
                 <h2 className="text-3xl md:text-4xl font-normal">La Vita in Associazione</h2>
               </div>
+              <p className="text-xl text-muted-foreground mt-4">
+                Vuoi vedere la vita in associazione? Guardaci sui nostri social media!
+              </p>
             </div>
 
-            <div className="max-w-3xl mx-auto animate-in zoom-in-95 duration-700 delay-200">
-              <Card className="p-8 bg-white border border-border shadow-lg hover:shadow-xl transition-shadow">
-                <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
-                  <div className="flex items-center gap-4">
-                    <div className="w-16 h-16 bg-[#1877F2] rounded-full flex items-center justify-center text-white shadow-md">
-                      <Facebook size={32} />
-                    </div>
-                    <div className="text-center md:text-left">
-                      <h3 className="text-2xl font-bold text-[#1877F2]">Open Dance ASD</h3>
-                      <p className="text-muted-foreground text-sm">Seguici per aggiornamenti in tempo reale</p>
-                    </div>
-                  </div>
-                  <a 
-                    href="https://www.facebook.com/p/OPEN-DANCE-ASD-100058870162755/" 
-                    target="_blank" 
+            <div className="max-w-4xl mx-auto">
+              <Card className="p-8 md:p-12 bg-white border border-border shadow-lg">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                  {/* Facebook */}
+                  <a
+                    href="https://www.facebook.com/p/OPEN-DANCE-ASD-100058870162755/"
+                    target="_blank"
                     rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-4 p-6 rounded-lg bg-accent/5 hover:bg-accent/10 transition-all hover:scale-105 group"
                   >
-                    <Button className="bg-[#1877F2] hover:bg-[#1864cc] text-white px-6">
-                      Vai alla Pagina
-                    </Button>
+                    <div className="w-20 h-20 bg-[#1877F2] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                      </svg>
+                    </div>
+                    <span className="text-lg font-semibold">Facebook</span>
+                    <span className="text-sm text-muted-foreground text-center">Seguici per foto e aggiornamenti</span>
+                  </a>
+
+                  {/* Instagram */}
+                  <a
+                    href="https://www.instagram.com/opendanceasd/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-4 p-6 rounded-lg bg-accent/5 hover:bg-accent/10 transition-all hover:scale-105 group"
+                  >
+                    <div className="w-20 h-20 bg-gradient-to-br from-[#833AB4] via-[#FD1D1D] to-[#F77737] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-4.358-.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.949 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.849.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.013-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0-2.163c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                      </svg>
+                    </div>
+                    <span className="text-lg font-semibold">Instagram</span>
+                    <span className="text-sm text-muted-foreground text-center">Le nostre storie e momenti</span>
+                  </a>
+
+                  {/* TikTok */}
+                  <a
+                    href="https://www.tiktok.com/@opendanceasd?is_from_webapp=1&sender_device=pc"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex flex-col items-center gap-4 p-6 rounded-lg bg-accent/5 hover:bg-accent/10 transition-all hover:scale-105 group"
+                  >
+                    <div className="w-20 h-20 bg-black rounded-full flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z" />
+                      </svg>
+                    </div>
+                    <span className="text-lg font-semibold">TikTok</span>
+                    <span className="text-sm text-muted-foreground text-center">Video e contenuti esclusivi</span>
                   </a>
                 </div>
-
-                {/* FEED REALE DI FACEBOOK */}
-                <div className="w-full flex justify-center bg-white rounded-xl overflow-hidden border border-gray-100">
-                <iframe 
-  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F100058870162755&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-  width="500" 
-  height="600" 
-  style={{border:'none', overflow:'hidden', maxWidth: '100%'}} 
-  scrolling="no" 
-  frameBorder="0" 
-  allowFullScreen={true} 
-  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-></iframe>
-                </div>
-                {/* FINE FEED REALE */}
-
               </Card>
             </div>
           </div>
@@ -411,7 +461,11 @@ export default function HomePage() {
                 </Button>
               </Link>
               <Link href="/galleria">
-                <Button variant="outline" size="lg" className="text-white border-white hover:bg-white/10 hover:text-white bg-transparent">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="text-white border-white hover:bg-white/10 hover:text-white bg-transparent"
+                >
                   I Nostri Tornei
                 </Button>
               </Link>
@@ -424,16 +478,13 @@ export default function HomePage() {
           <div className="container mx-auto px-4 lg:px-8">
             <div className="text-center mb-16 animate-in fade-in duration-700">
               <h2 className="text-3xl md:text-4xl font-normal font-serif mb-4">Domande</h2>
-              <p className="text-white/80">
-                Troverai qui le risposte che cerchi sulla nostra associazione e i corsi.
-              </p>
+              <p className="text-white/80">Troverai qui le risposte che cerchi sulla nostra associazione e i corsi.</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
-              
               <Card className="p-8 bg-white text-black border-0 rounded-xl hover:shadow-lg transition-transform hover:-translate-y-1 duration-300">
                 <div className="w-12 h-12 bg-[#f9f4e8] rounded-lg flex items-center justify-center mb-6">
-                   <LogIn className="w-6 h-6 text-[#D4AF37]" />
+                  <LogIn className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Come mi iscrivo?</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -443,28 +494,27 @@ export default function HomePage() {
 
               <Card className="p-8 bg-white text-black border-0 rounded-xl hover:shadow-lg transition-transform hover:-translate-y-1 duration-300">
                 <div className="w-12 h-12 bg-[#f9f4e8] rounded-lg flex items-center justify-center mb-6">
-                   <Clock className="w-6 h-6 text-[#D4AF37]" />
+                  <Clock className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Quali sono gli orari?</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Lun - Sab: 9:00 - 23:00<br/>
+                  Lun - Sab: 9:00 - 23:00
+                  <br />
                   Domenica: 17:00 - 23:00
                 </p>
               </Card>
 
               <Card className="p-8 bg-white text-black border-0 rounded-xl hover:shadow-lg transition-transform hover:-translate-y-1 duration-300">
                 <div className="w-12 h-12 bg-[#f9f4e8] rounded-lg flex items-center justify-center mb-6">
-                   <Lightbulb className="w-6 h-6 text-[#D4AF37]" />
+                  <Lightbulb className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Che cosa devo indossare?</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                   Abbigliamento comodo è sufficiente.
-                </p>
+                <p className="text-sm text-gray-600 leading-relaxed">Abbigliamento comodo è sufficiente.</p>
               </Card>
 
               <Card className="p-8 bg-white text-black border-0 rounded-xl hover:shadow-lg transition-transform hover:-translate-y-1 duration-300">
                 <div className="w-12 h-12 bg-[#f9f4e8] rounded-lg flex items-center justify-center mb-6">
-                   <HelpCircle className="w-6 h-6 text-[#D4AF37]" />
+                  <HelpCircle className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">C'è un'età minima?</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -474,7 +524,7 @@ export default function HomePage() {
 
               <Card className="p-8 bg-white text-black border-0 rounded-xl hover:shadow-lg transition-transform hover:-translate-y-1 duration-300">
                 <div className="w-12 h-12 bg-[#f9f4e8] rounded-lg flex items-center justify-center mb-6">
-                   <Lightbulb className="w-6 h-6 text-[#D4AF37]" />
+                  <Lightbulb className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Posso provare prima?</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
@@ -485,14 +535,13 @@ export default function HomePage() {
               {/* CARD 6 - SOSTITUITA "Serve un partner?" */}
               <Card className="p-8 bg-white text-black border-0 rounded-xl hover:shadow-lg transition-transform hover:-translate-y-1 duration-300">
                 <div className="w-12 h-12 bg-[#f9f4e8] rounded-lg flex items-center justify-center mb-6">
-                   <Info className="w-6 h-6 text-[#D4AF37]" />
+                  <Info className="w-6 h-6 text-[#D4AF37]" />
                 </div>
                 <h3 className="text-lg font-bold mb-3">Serve un partner?</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
                   Non è obbligatorio. Molti vengono da soli e si formano coppie durante i corsi.
                 </p>
               </Card>
-
             </div>
 
             <div className="text-center">
@@ -501,7 +550,10 @@ export default function HomePage() {
                 Scrivi a noi e risponderemo presto con tutto quello che serve.
               </p>
               <Link href="/contatti">
-                <Button variant="outline" className="bg-white text-black hover:bg-white/90 px-8 py-2 rounded-md font-medium">
+                <Button
+                  variant="outline"
+                  className="bg-white text-black hover:bg-white/90 px-8 py-2 rounded-md font-medium"
+                >
                   Contatti
                 </Button>
               </Link>

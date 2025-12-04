@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { CookieConsent } from "@/components/cookie-consent"
 import "./globals.css"
 
 const playfair = Playfair_Display({
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-    generator: 'v0.app'
+  generator: "v0.app",
 }
 
 export default function RootLayout({
@@ -44,6 +45,7 @@ export default function RootLayout({
     <html lang="it" className={`${playfair.variable}`}>
       <body className={`font-sans antialiased`}>
         {children}
+        <CookieConsent />
         <Analytics />
       </body>
     </html>
