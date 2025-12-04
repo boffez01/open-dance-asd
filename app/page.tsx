@@ -340,16 +340,16 @@ export default function HomePage() {
 
                 {/* FEED REALE DI FACEBOOK */}
                 <div className="w-full flex justify-center bg-white rounded-xl overflow-hidden border border-gray-100">
-                  <iframe 
-                    src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fp%2FOPEN-DANCE-ASD-100058870162755%2F&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" 
-                    width="500" 
-                    height="600" 
-                    style={{border:'none', overflow:'hidden', maxWidth: '100%'}} 
-                    scrolling="no" 
-                    frameBorder="0" 
-                    allowFullScreen={true} 
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                  ></iframe>
+                <iframe 
+  src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F100058870162755&tabs=timeline&width=500&height=600&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
+  width="500" 
+  height="600" 
+  style={{border:'none', overflow:'hidden', maxWidth: '100%'}} 
+  scrolling="no" 
+  frameBorder="0" 
+  allowFullScreen={true} 
+  allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+></iframe>
                 </div>
                 {/* FINE FEED REALE */}
 
