@@ -3,14 +3,17 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { WhatsAppButton } from "@/components/whatsapp-button"
+// Import corretti inclusi CardContent
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
-import { Heart, Users, Trophy, ChevronLeft, ChevronRight } from "lucide-react"
+import { Heart, Users, Trophy, ChevronLeft, ChevronRight, Star, Medal, CheckCircle2 } from "lucide-react"
 import { useState } from "react"
+import { motion } from "framer-motion"
 
 export default function ChiSiamoPage() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0)
 
+  // Immagini dei fondatori
   const foundersImages = [
     {
       src: "/images/giorgio-moglie.jpeg",
@@ -34,12 +37,100 @@ export default function ChiSiamoPage() {
     },
   ]
 
+  // LISTA AGONISTI
+  // Nota: Ho aggiunto encodeURI per gestire gli spazi nei nomi dei file in modo sicuro
+  const agonisti = [
+    {
+      name: "Claudio Bertoldi e Simonetta Sironi",
+      image: "/images/gallery/Claudio Bertoldi e Simonetta Sironi Danze Standard\u00A0B2.jpg", // Tentativo con NBSP se presente nel nome file originale
+    },
+    {
+      name: "Claudio Corsini e Fausta Pedroni",
+      image: "/images/gallery/Claudio Corsini e Fausta Pedroni Danze Standard\u00A0B2.jpeg",
+    },
+    {
+      name: "Fabio Maranta e Monica Antonelli",
+      image: "/images/gallery/Fabio Maranta e Monica Antonelli Danze Nazionali\u00A0B1.jpg",
+    },
+    {
+      name: "Fabio Martini e Marisa Barucchelli",
+      image: "/images/gallery/Fabio Martini e Marisa Barucchelli Danze Standard\u00A0B1.jpg",
+    },
+    {
+      name: "Fabio Pantano e Jennifer Rosa",
+      image: "/images/gallery/Fabio Pantano e Jennifer Rosa Danze Standard\u00A0B1.jpg",
+    },
+    {
+      name: "Fabrizio Bonassi e Paola Premoli",
+      image: "/images/gallery/Fabrizio Bonassi e Paola Premoli Danze Nazionali\u00A0B1.jpg",
+    },
+    {
+      name: "Fabrizio Ragni e Claudia Delaini",
+      image: "/images/gallery/Fabrizio Ragni e Claudia Delaini Danze Standard\u00A0B3.jpg",
+    },
+    {
+      name: "Giuseppe Franzoni e Elisabetta Volpi",
+      image: "/images/gallery/Giuseppe Franzoni e Elisabetta Volpi Danze Nazionali\u00A0B2.jpg",
+    },
+    {
+      name: "Giuseppe Massarotto e Rosalia Guerra",
+      image: "/images/gallery/Giuseppe Massarotto e Rosalia Guerra Danze Standard\u00A0B2.jpg",
+    },
+    {
+      name: "Massimo Zucchi e Alessandra Bresciani",
+      image: "/images/gallery/Massimo Zucchi e Alessandra Bresciani Danze Standard\u00A0A.jpg",
+    },
+    {
+      name: "Michele Turla e Dalida Turla",
+      image: "/images/gallery/Michele Turla e Dalida Turla Danze Nazionali\u00A0B2.jpg",
+    },
+    {
+      name: "Renato Mombelli e Silvia Volpi",
+      image: "/images/gallery/Renato Mombelli e Silvia Volpi Danze Standard B2.jpeg",
+    },
+    {
+      name: "Roberto Bonfadini e Patrizia Bracchi",
+      image: "/images/gallery/Roberto Bonfadini e Patrizia Bracchi Danze Nazionali\u00A0A2.jpg",
+    },
+    {
+      name: "Sergio Franceschetti e Giuliana Bersini",
+      image: "/images/gallery/Sergio Franceschetti e Giuliana Bersini Danze Nazionali\u00A0B1.jpg",
+    },
+    {
+      name: "Tiziano Mora e Silvia Santoni",
+      image: "/images/gallery/Tiziano Mora e Silvia Santoni Danze Standard\u00A0A.jpg",
+    },
+  ]
+
   const nextImage = () => {
     setCurrentImageIndex((prev) => (prev + 1) % foundersImages.length)
   }
 
   const prevImage = () => {
     setCurrentImageIndex((prev) => (prev - 1 + foundersImages.length) % foundersImages.length)
+  }
+
+  // Funzione per aprire WhatsApp
+  const handleContactClick = () => {
+    const phoneNumber = "393401234567" // Sostituisci con il numero reale
+    const message = encodeURIComponent("Ciao! Vorrei avere informazioni su Open Dance ASD.")
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+  }
+
+  // Varianti Animazioni Framer Motion
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+  }
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
   }
 
   return (
@@ -49,32 +140,47 @@ export default function ChiSiamoPage() {
 
       <main className="min-h-screen bg-background">
         {/* Hero Section */}
-        <section className="relative pt-20 pb-12 bg-gradient-to-b from-accent/10 to-background">
-          <div className="absolute inset-0 bg-black/50 z-10" />
-          <img
-            src="/images/giorgio-lagorio-cristina-spinoni.jpeg"
+        <section className="relative pt-32 pb-20 bg-gradient-to-b from-accent/10 to-background overflow-hidden">
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          <motion.img
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 10, repeat: Infinity, repeatType: "reverse" }}
+            src="/images/giorgio-lagorio-cristina-spinoni-insegnanti.jpg"
             alt="Giorgio Lagorio e Cristina Spinoni"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          <div className="relative z-20 text-center text-white px-4">
-            <p className="text-xs uppercase tracking-wider mb-3 text-white/90">CHI SIAMO</p>
-            <h1 className="text-4xl md:text-5xl font-normal mb-3 drop-shadow-lg">
-              Una comunità unita dalla <span className="text-[#D4AF37] italic">passione per il ballo</span>
-            </h1>
+          <div className="relative z-20 text-center text-white px-4 container mx-auto">
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+            >
+              <p className="text-xs uppercase tracking-wider mb-3 text-white/90 font-bold">CHI SIAMO</p>
+              <h1 className="text-4xl md:text-6xl font-serif font-medium mb-6 drop-shadow-xl leading-tight">
+                Una comunità unita dalla <span className="text-[#D4AF37] italic">passione per il ballo</span>
+              </h1>
+            </motion.div>
           </div>
         </section>
 
         {/* Mission Section */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
-            <div className="text-center mb-12">
+            <motion.div 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="text-center mb-12"
+            >
               <p className="text-xs uppercase tracking-wider mb-3 text-primary">LA NOSTRA MISSIONE</p>
               <h2 className="text-3xl md:text-4xl font-normal mb-4">Creare un ambiente di danza</h2>
-              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              <p className="text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 Open Dance ASD si impegna a fornire una esperienza di danza unica e coinvolgente, dove la passione e la
                 professionalità si uniscono per creare un'atmosfera accogliente e stimolante.
               </p>
-            </div>
+            </motion.div>
           </div>
         </section>
 
@@ -111,12 +217,12 @@ export default function ChiSiamoPage() {
               </div>
 
               <div className="flex flex-wrap justify-center gap-4 mt-8">
-                <a href="/attivita">
+                <a href="/corsi">
                   <Button variant="secondary" size="lg" className="font-medium">
-                    Scopri
+                    Scopri i Corsi
                   </Button>
                 </a>
-                <a href="/attivita#tornei">
+                <a href="/galleria">
                   <Button
                     variant="outline"
                     size="lg"
@@ -135,64 +241,85 @@ export default function ChiSiamoPage() {
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
               <p className="text-xs uppercase tracking-wider mb-3 text-primary">I FONDATORI</p>
-              <h2 className="text-3xl md:text-4xl font-normal mb-4">Giorgio Lagorio e sua moglie</h2>
-              <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-                Pluridecennale esperienza nel ballo liscio e oltre un decennio di dedizione alla crescita di Open Dance
-                ASD
-              </p>
+              <h2 className="text-3xl md:text-4xl font-normal mb-4">Giorgio Lagorio e Cristina Spinoni</h2>
             </div>
 
             <div className="max-w-6xl mx-auto">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                {/* Text Content - Combined paragraph for both */}
-                <div className="space-y-6">
-                  <div>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      Maestro di ballo liscio con una pluridecennale esperienza nel mondo della danza sportiva, Giorgio
-                      ha dedicato la sua vita alla danza, conquistando numerosi titoli nazionali e internazionali. Ha
-                      fondato Open Dance ASD oltre un decennio fa con l'obiettivo di creare uno spazio dove la passione
-                      per il ballo incontra la professionalità e l'accoglienza.
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                
+                {/* TESTO COMPLETO E FORMATTATO */}
+                <motion.div 
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true }}
+                  variants={staggerContainer}
+                  className="space-y-6"
+                >
+                  <motion.div variants={fadeInUp} className="prose text-muted-foreground leading-relaxed text-sm space-y-4 text-justify">
+                    <p>
+                      Dopo aver praticato le <strong>Danze Nazionali</strong> – Ballo da Sala e Liscio unificato – 
+                      ed aver conseguito il titolo di <strong>Campioni Italiani</strong>, Giorgio e Cristina 
+                      intraprendono un percorso nelle Danze Standard fino all’ottenimento 
+                      della <strong>Classe Internazionale</strong> con successiva partecipazione a concorsi di 
+                      assoluto prestigio.
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
-                      Co-fondatrice di Open Dance ASD, porta con sé una pluridecennale esperienza nel ballo liscio e una
-                      sensibilità unica nell'insegnamento. Insieme a Giorgio, ha costruito da oltre un decennio una
-                      scuola che è diventata una vera famiglia per centinaia di appassionati. Con anni di dedizione ai
-                      propri allievi, è specializzata nel creare un'atmosfera dove tecnica ed emozione si fondono
-                      perfettamente, permettendo ad ogni ballerino di esprimere il proprio talento.
+                    <p>
+                      Dalla loro passione per il ballo, nel <strong>2015</strong>, nasce <strong>Open Dance ASD</strong>, con 
+                      l’obiettivo di creare uno spazio dove l’amore per la danza, la 
+                      professionalità e l’accoglienza siano le note distintive.
                     </p>
-                    <p className="text-sm text-muted-foreground leading-relaxed">
-                      La loro filosofia condivisa: ogni passo è un'opportunità per crescere insieme, condividendo la
-                      gioia del movimento e della musica.
+                    <div className="p-4 bg-white/50 border-l-4 border-primary rounded-r-lg my-4 shadow-sm italic text-foreground/90 font-medium">
+                      "Il conseguimento del diploma di Maestri, il successivo ottenimento di 
+                      abilitazioni in ambito federale, il continuo processo di studi ed 
+                      aggiornamenti, oltre all’esperienza ed alla sensibilità acquisita durante la 
+                      pratica quotidiana, rendono la Open Dance il luogo ideale in cui muovere i 
+                      primi passi di danza e, per chi lo desidera, sognare in grande e puntare al 
+                      raggiungimento di importanti obiettivi in ambito agonistico."
+                    </div>
+                    <p>
+                      Da oltre un decennio Open Dance è diventata una vera famiglia per 
+                      centinaia di appassionati, all’interno della quale ogni passo è 
+                      un’opportunità per crescere insieme, condividendo la gioia del 
+                      movimento e della musica.
                     </p>
-                  </div>
+                  </motion.div>
 
-                  <div className="pt-6 border-t border-border">
-                    <h4 className="text-lg font-bold mb-3 text-card-foreground">Esperienza e Competenze</h4>
-                    <ul className="space-y-2 text-sm text-muted-foreground">
+                  <motion.div variants={fadeInUp} className="pt-6 border-t border-border">
+                    <h4 className="text-lg font-bold mb-4 text-card-foreground flex items-center gap-2">
+                      <Medal className="text-primary" size={20}/>
+                      ESPERIENZA E COMPETENZE
+                    </h4>
+                    <ul className="space-y-3 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2">
-                        <Trophy className="text-primary mt-1 flex-shrink-0" size={16} />
-                        <span>Oltre 20 anni di esperienza nel ballo liscio</span>
+                        <CheckCircle2 className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                        <span>Da oltre vent’anni nel mondo della danza</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <Trophy className="text-primary mt-1 flex-shrink-0" size={16} />
-                        <span>Numerosi titoli nazionali e internazionali</span>
+                        <CheckCircle2 className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                        <span>Solida esperienza in ambito agonistico</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <Trophy className="text-primary mt-1 flex-shrink-0" size={16} />
-                        <span>Fondatori e direttori di Open Dance ASD da oltre 10 anni</span>
+                        <CheckCircle2 className="text-primary mt-0.5 flex-shrink-0" size={16} />
+                        <span>Da oltre dieci anni tecnici di riferimento di Open Dance ASD</span>
                       </li>
                     </ul>
-                  </div>
-                </div>
+                  </motion.div>
+                </motion.div>
 
                 {/* Carousel */}
-                <div className="relative group">
+                <motion.div 
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="relative group"
+                >
                   <Card className="overflow-hidden border-2 border-primary/20">
                     <div className="aspect-[3/4] relative bg-accent/10">
                       <img
                         src={foundersImages[currentImageIndex].src || "/placeholder.svg"}
                         alt={foundersImages[currentImageIndex].alt}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
 
                       {/* Navigation Arrows */}
@@ -232,13 +359,13 @@ export default function ChiSiamoPage() {
                       />
                     ))}
                   </div>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Students Section */}
+        {/* 1. SEZIONE ALLIEVI (Prima degli agonisti) */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -252,12 +379,12 @@ export default function ChiSiamoPage() {
 
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
+                <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all hover:shadow-md">
                   <div className="aspect-video relative bg-accent/10">
                     <img
-                      src="/images/gruppo-cena.jpeg"
+                      src="/images/gallery/gruppo_cena.jpeg"
                       alt="Gruppo cena - Eventi e Feste Open Dance"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <CardContent className="p-6">
@@ -269,12 +396,12 @@ export default function ChiSiamoPage() {
                   </CardContent>
                 </Card>
 
-                <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all">
+                <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all hover:shadow-md">
                   <div className="aspect-video relative bg-accent/10">
                     <img
-                      src="/images/gruppo-fermo.jpeg"
+                      src="/images/gallery/gruppo_fermo.jpeg"
                       alt="Lezioni di gruppo Open Dance"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <CardContent className="p-6">
@@ -288,28 +415,28 @@ export default function ChiSiamoPage() {
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="overflow-hidden border border-primary/20">
+                <Card className="overflow-hidden border border-primary/20 hover:shadow-md transition-all">
                   <div className="aspect-square relative bg-accent/10">
                     <img
-                      src="/images/gruppo-halloween.jpeg"
+                      src="/images/gallery/halloween_gruppo.jpeg"
                       alt="Festa Halloween"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 </Card>
 
-                <Card className="overflow-hidden border border-primary/20">
+                <Card className="overflow-hidden border border-primary/20 hover:shadow-md transition-all">
                   <div className="aspect-square relative bg-accent/10">
-                    <img src="/images/corso-gruppo.jpeg" alt="Corso di gruppo" className="w-full h-full object-cover" />
+                    <img src="/images/corso-gruppo.jpeg" alt="Corso di gruppo" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
                 </Card>
 
-                <Card className="overflow-hidden border border-primary/20">
+                <Card className="overflow-hidden border border-primary/20 hover:shadow-md transition-all">
                   <div className="aspect-square relative bg-accent/10">
                     <img
-                      src="/images/gruppo-ben-vestito.jpeg"
+                      src="/images/gallery/gruppo_ben_vestito.jpeg"
                       alt="Gruppo in abito elegante"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                 </Card>
@@ -318,7 +445,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* Agonisti Section */}
+        {/* 2. SEZIONE AGONISTI (Dopo gli allievi) */}
         <section className="py-16 bg-accent/5 overflow-hidden">
           <div className="container mx-auto px-4 mb-12">
             <div className="text-center">
@@ -330,434 +457,47 @@ export default function ChiSiamoPage() {
             </div>
           </div>
 
-          <div className="relative">
-            <div className="flex animate-scroll-left">
-              {/* First set of images */}
+          <div className="relative w-full overflow-hidden">
+            <div className="flex animate-scroll-left hover:[animation-play-state:paused]">
+              {/* Loop principale */}
               <div className="flex gap-6 px-3">
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/claudio-bertoldi-simonetta-sironi.jpg"
-                        alt="Claudio Bertoldi e Simonetta Sironi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Claudio Bertoldi e Simonetta Sironi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/claudio-corsini-fausta-pedroni.jpeg"
-                        alt="Claudio Corsini e Fausta Pedroni"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Claudio Corsini e Fausta Pedroni</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabio-maranta-monica-antonelli.jpg"
-                        alt="Fabio Maranta e Monica Antonelli"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabio Maranta e Monica Antonelli</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabio-martini-marisa-barucchelli.jpg"
-                        alt="Fabio Martini e Marisa Barucchelli"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabio Martini e Marisa Barucchelli</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabio-pantano-jennifer-rosa.jpg"
-                        alt="Fabio Pantano e Jennifer Rosa"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabio Pantano e Jennifer Rosa</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabrizio-bonassi-paola-premoli.jpg"
-                        alt="Fabrizio Bonassi e Paola Premoli"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabrizio Bonassi e Paola Premoli</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabrizio-ragni-claudia-delaini.jpg"
-                        alt="Fabrizio Ragni e Claudia Delaini"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabrizio Ragni e Claudia Delaini</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/giuseppe-franzoni-elisabetta-volpi.jpg"
-                        alt="Giuseppe Franzoni e Elisabetta Volpi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Giuseppe Franzoni e Elisabetta Volpi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/giuseppe-massarotto-rosalia-guerra.jpg"
-                        alt="Giuseppe Massarotto e Rosalia Guerra"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Giuseppe Massarotto e Rosalia Guerra</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/collage.jpeg"
-                        alt="Massimo Zucchi e Alessandra Bresciani"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Massimo Zucchi e Alessandra Bresciani</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/michele-turla-dalida-turla.jpg"
-                        alt="Michele Turla e Dalida Turla"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Michele Turla e Dalida Turla</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/renato-mombelli-silvia-volpi.jpeg"
-                        alt="Renato Mombelli e Silvia Volpi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Renato Mombelli e Silvia Volpi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/roberto-bonfadini-patrizia-bracchi.jpg"
-                        alt="Roberto Bonfadini e Patrizia Bracchi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Roberto Bonfadini e Patrizia Bracchi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/sergio-franceschetti-giuliana-bersini.jpg"
-                        alt="Sergio Franceschetti e Giuliana Bersini"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Sergio Franceschetti e Giuliana Bersini</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/tiziano-mora-silvia-santoni.jpg"
-                        alt="Tiziano Mora e Silvia Santoni"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Tiziano Mora e Silvia Santoni</p>
-                    </div>
-                  </Card>
-                </div>
+                {agonisti.map((coppia, index) => (
+                  <div key={index} className="flex-shrink-0 w-[280px]">
+                    <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
+                      <div className="aspect-[3/4] relative">
+                        {/* Se l'immagine non carica, controlliamo che il percorso nel file corrisponda esattamente */}
+                        <img
+                          src={coppia.image}
+                          alt={coppia.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-4 bg-card text-center">
+                        <p className="text-sm italic text-muted-foreground font-medium">{coppia.name}</p>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
               </div>
 
               {/* Duplicate set for seamless infinite loop */}
               <div className="flex gap-6 px-3">
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/claudio-bertoldi-simonetta-sironi.jpg"
-                        alt="Claudio Bertoldi e Simonetta Sironi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Claudio Bertoldi e Simonetta Sironi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/claudio-corsini-fausta-pedroni.jpeg"
-                        alt="Claudio Corsini e Fausta Pedroni"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Claudio Corsini e Fausta Pedroni</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabio-maranta-monica-antonelli.jpg"
-                        alt="Fabio Maranta e Monica Antonelli"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabio Maranta e Monica Antonelli</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabio-martini-marisa-barucchelli.jpg"
-                        alt="Fabio Martini e Marisa Barucchelli"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabio Martini e Marisa Barucchelli</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabio-pantano-jennifer-rosa.jpg"
-                        alt="Fabio Pantano e Jennifer Rosa"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabio Pantano e Jennifer Rosa</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabrizio-bonassi-paola-premoli.jpg"
-                        alt="Fabrizio Bonassi e Paola Premoli"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabrizio Bonassi e Paola Premoli</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/fabrizio-ragni-claudia-delaini.jpg"
-                        alt="Fabrizio Ragni e Claudia Delaini"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Fabrizio Ragni e Claudia Delaini</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/giuseppe-franzoni-elisabetta-volpi.jpg"
-                        alt="Giuseppe Franzoni e Elisabetta Volpi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Giuseppe Franzoni e Elisabetta Volpi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/giuseppe-massarotto-rosalia-guerra.jpg"
-                        alt="Giuseppe Massarotto e Rosalia Guerra"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Giuseppe Massarotto e Rosalia Guerra</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/collage.jpeg"
-                        alt="Massimo Zucchi e Alessandra Bresciani"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Massimo Zucchi e Alessandra Bresciani</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/michele-turla-dalida-turla.jpg"
-                        alt="Michele Turla e Dalida Turla"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Michele Turla e Dalida Turla</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/renato-mombelli-silvia-volpi.jpeg"
-                        alt="Renato Mombelli e Silvia Volpi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Renato Mombelli e Silvia Volpi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/roberto-bonfadini-patrizia-bracchi.jpg"
-                        alt="Roberto Bonfadini e Patrizia Bracchi"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Roberto Bonfadini e Patrizia Bracchi</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/sergio-franceschetti-giuliana-bersini.jpg"
-                        alt="Sergio Franceschetti e Giuliana Bersini"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Sergio Franceschetti e Giuliana Bersini</p>
-                    </div>
-                  </Card>
-                </div>
-                <div className="flex-shrink-0 w-[280px]">
-                  <Card className="overflow-hidden border-2 border-primary/20">
-                    <div className="aspect-[3/4] relative">
-                      <img
-                        src="/images/gallery/tiziano-mora-silvia-santoni.jpg"
-                        alt="Tiziano Mora e Silvia Santoni"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div className="p-4 bg-card text-center">
-                      <p className="text-sm italic text-muted-foreground">Tiziano Mora e Silvia Santoni</p>
-                    </div>
-                  </Card>
-                </div>
+                {agonisti.map((coppia, index) => (
+                  <div key={`dup-${index}`} className="flex-shrink-0 w-[280px]">
+                    <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
+                      <div className="aspect-[3/4] relative">
+                        <img
+                          src={coppia.image}
+                          alt={coppia.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="p-4 bg-card text-center">
+                        <p className="text-sm italic text-muted-foreground font-medium">{coppia.name}</p>
+                      </div>
+                    </Card>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -769,7 +509,7 @@ export default function ChiSiamoPage() {
             <p className="text-xs uppercase tracking-wider mb-3 text-primary text-center">I NOSTRI VALORI</p>
             <h2 className="text-3xl font-normal mb-12 text-foreground text-center">Cosa ci guida ogni giorno</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <Card className="p-6 bg-card border border-border text-center">
+              <Card className="p-6 bg-card border border-border text-center hover:shadow-md transition-all">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Heart className="text-primary" size={24} />
                 </div>
@@ -782,7 +522,7 @@ export default function ChiSiamoPage() {
                 </p>
               </Card>
 
-              <Card className="p-6 bg-card border border-border text-center">
+              <Card className="p-6 bg-card border border-border text-center hover:shadow-md transition-all">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Users className="text-primary" size={24} />
                 </div>
@@ -795,7 +535,7 @@ export default function ChiSiamoPage() {
                 </p>
               </Card>
 
-              <Card className="p-6 bg-card border border-border text-center">
+              <Card className="p-6 bg-card border border-border text-center hover:shadow-md transition-all">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Trophy className="text-primary" size={24} />
                 </div>
@@ -811,164 +551,55 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gradient-to-b from-background to-accent/10">
+        {/* FAQ Section - DESIGN CON ANIMAZIONI & ORARI AGGIORNATI */}
+        <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-5xl">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-normal mb-4">Domande</h2>
-              <p className="text-sm text-background/80">
-                Troverai qui le risposte che cerchi sulla nostra associazione e i corsi.
-              </p>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="text-center mb-16"
+            >
+              <h2 className="text-3xl md:text-4xl font-normal mb-4 text-foreground">Domande Frequenti</h2>
+              <p className="text-sm text-muted-foreground">Troverai qui le risposte che cerchi sulla nostra associazione.</p>
+            </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-              <Card className="p-6 bg-background text-foreground border-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-base font-bold mb-2">Come mi iscrivo?</h3>
-                <p className="text-xs text-muted-foreground">
-                  Contattaci via WhatsApp o vieni a trovarci in sede per compilare il modulo di adesione.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-background text-foreground border-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-base font-bold mb-2">Quali sono gli orari?</h3>
-                <p className="text-xs text-muted-foreground">
-                  I corsi si tengono dal lunedì al venerdì sera e il sabato mattina, con fasce orarie diverse per ogni
-                  livello.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-background text-foreground border-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-base font-bold mb-2">Che cosa devo indossare?</h3>
-                <p className="text-xs text-muted-foreground">
-                  Abbigliamento comodo e scarpe da danza sono essenziali: ti consigliamo il resto al primo incontro.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-background text-foreground border-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-base font-bold mb-2">C'è un'età minima?</h3>
-                <p className="text-xs text-muted-foreground">
-                  Accogliamo ballerini dai quattro anni in su, senza limiti di età massima.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-background text-foreground border-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-base font-bold mb-2">Posso provare prima?</h3>
-                <p className="text-xs text-muted-foreground">
-                  Sì, offriamo una lezione di prova gratuita per conoscere lo stile e l'insegnante.
-                </p>
-              </Card>
-
-              <Card className="p-6 bg-background text-foreground border-0">
-                <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-4">
-                  <svg
-                    className="w-6 h-6 text-primary"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </div>
-                <h3 className="text-base font-bold mb-2">Quali stili insegnate?</h3>
-                <p className="text-xs text-muted-foreground">
-                  Classico, contemporaneo, latino, moderno e danza urbana sono i nostri principali indirizzi.
-                </p>
-              </Card>
-            </div>
+            <motion.div 
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={staggerContainer}
+            >
+              {[
+                { title: "Come mi iscrivo?", desc: "Contattaci via WhatsApp o vieni a trovarci in sede per compilare il modulo.", icon: "📝" },
+                { title: "Quali sono gli orari?", desc: "Dal lunedì al sabato 9:00/23:00, domenica 17:00/23:00.", icon: "⏰" },
+                { title: "Abbigliamento?", desc: "Comodo e scarpe da danza (consigliamo al primo incontro).", icon: "👞" },
+                { title: "Età minima?", desc: "Dai quattro anni in su, senza limiti massimi.", icon: "👶" },
+                { title: "Posso provare?", desc: "Sì, offriamo una lezione di prova gratuita.", icon: "✨" },
+                { title: "Stili insegnati?", desc: "Liscio, standard, latino, balli di gruppo e altro.", icon: "💃" }
+              ].map((faq, idx) => (
+                <motion.div variants={fadeInUp} key={idx}>
+                  <Card className="p-6 bg-card text-foreground border border-border h-full hover:shadow-md transition-all hover:border-primary/30">
+                    <div className="text-3xl mb-4">{faq.icon}</div>
+                    <h3 className="text-lg font-bold mb-2">{faq.title}</h3>
+                    <p className="text-xs text-muted-foreground leading-relaxed">{faq.desc}</p>
+                  </Card>
+                </motion.div>
+              ))}
+            </motion.div>
 
             <div className="text-center">
               <h3 className="text-2xl font-normal mb-4">Hai altre domande?</h3>
-              <p className="text-sm text-background/80 mb-6">
+              <p className="text-sm text-muted-foreground mb-8">
                 Scrivi a noi e risponderemo presto con tutto quello che serve.
               </p>
-              <Button variant="outline" className="bg-background text-foreground hover:bg-background/90">
-                Contatti
+              <Button 
+                onClick={handleContactClick}
+                variant="outline" 
+                className="px-8 py-6 text-lg border-2 hover:bg-accent hover:text-accent-foreground"
+              >
+                Contattaci Subito
               </Button>
             </div>
           </div>

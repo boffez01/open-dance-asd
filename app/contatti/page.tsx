@@ -11,16 +11,20 @@ export default function ContattiPage() {
       <WhatsAppButton />
 
       <main className="min-h-screen pt-20">
-        {/* Hero */}
+        {/* Hero Section */}
         <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 bg-primary/60 z-10" />
+          {/* Overlay scuro per leggere meglio il testo */}
+          <div className="absolute inset-0 bg-black/40 z-10" />
+          
+          {/* IMMAGINE DI SFONDO CORRETTA */}
           <img
-            src="/placeholder.svg?height=800&width=1920"
+            src="/images/gallery/banner_foto.jpg"
             alt="Sede Open Dance"
             className="absolute inset-0 w-full h-full object-cover"
           />
+          
           <div className="relative z-20 text-center text-white px-4">
-            <h1 className="text-5xl md:text-6xl font-bold">Contattaci</h1>
+            <h1 className="text-5xl md:text-6xl font-serif font-bold drop-shadow-lg">Contattaci</h1>
           </div>
         </section>
 
@@ -28,6 +32,7 @@ export default function ContattiPage() {
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto mb-16">
+              {/* Indirizzo */}
               <Card className="p-8 text-center hover:shadow-lg transition-shadow bg-card border border-border">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <MapPin className="text-primary" size={32} />
@@ -42,16 +47,18 @@ export default function ContattiPage() {
                 </p>
               </Card>
 
+              {/* Telefono */}
               <Card className="p-8 text-center hover:shadow-lg transition-shadow bg-card border border-border">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Phone className="text-primary" size={32} />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-card-foreground">Telefono</h3>
-                <a href="tel:+393401234567" className="text-muted-foreground hover:text-primary transition-colors">
-                  +39 340 123 4567
+                <a href="tel:+393936631959" className="text-muted-foreground hover:text-primary transition-colors">
+                  +39 393 663 1959
                 </a>
               </Card>
 
+              {/* Email */}
               <Card className="p-8 text-center hover:shadow-lg transition-shadow bg-card border border-border">
                 <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Mail className="text-accent" size={32} />
@@ -65,22 +72,22 @@ export default function ContattiPage() {
                 </a>
               </Card>
 
+              {/* Orari */}
               <Card className="p-8 text-center hover:shadow-lg transition-shadow bg-card border border-border">
                 <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                   <Clock className="text-primary" size={32} />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-card-foreground">Orari</h3>
                 <div className="text-muted-foreground text-sm space-y-1">
-                  <p>Lun-Ven: 18:00 - 22:00</p>
-                  <p>Sabato: 15:00 - 20:00</p>
-                  <p>Domenica: Chiuso</p>
+                  <p>Lun - Sab: 9:00 - 23:00</p>
+                  <p>Domenica: 17:00 - 23:00</p>
                 </div>
               </Card>
             </div>
 
             {/* Map Section */}
             <div className="max-w-6xl mx-auto">
-              <h2 className="text-4xl font-bold text-center mb-8 text-foreground">Dove Siamo</h2>
+              <h2 className="text-4xl font-bold text-center mb-8 text-foreground font-serif">Dove Siamo</h2>
               <Card className="overflow-hidden bg-card border border-border">
                 <div className="aspect-video">
                   <iframe
@@ -102,7 +109,7 @@ export default function ContattiPage() {
         {/* Additional Info */}
         <section className="py-20 bg-secondary">
           <div className="container mx-auto px-4 max-w-4xl text-center">
-            <h2 className="text-3xl font-bold mb-6 text-foreground">Vieni a Trovarci</h2>
+            <h2 className="text-3xl font-bold mb-6 text-foreground font-serif">Vieni a Trovarci</h2>
             <p className="text-lg text-muted-foreground leading-relaxed mb-8">
               La nostra sede è facilmente raggiungibile e dispone di ampio parcheggio. Puoi venire a visitarci durante
               gli orari di apertura per conoscere i nostri maestri, vedere la sala e ricevere tutte le informazioni sui

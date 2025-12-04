@@ -9,12 +9,18 @@ export function Footer() {
           {/* Open Dance ASD - Logo and Description */}
           <div>
             <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-2xl font-bold text-primary-foreground">O</span>
+              {/* Logo Sostituito Qui */}
+              <div className="h-14 w-14 relative flex-shrink-0 bg-white rounded-full p-1 overflow-hidden flex items-center justify-center border border-border">
+                 <img 
+                  src="/images/logo-sgranato.jpeg" 
+                  alt="Open Dance Logo" 
+                  className="w-full h-full object-contain rounded-full"
+                />
               </div>
+              
               <div>
                 <h3 className="text-xl font-semibold leading-none">Open Dance</h3>
-                <div className="text-xs text-muted-foreground uppercase tracking-wider">ASD</div>
+                <div className="text-xs text-muted-foreground uppercase tracking-wider mt-1">ASD</div>
               </div>
             </div>
             <p className="text-muted-foreground leading-relaxed mb-6">
@@ -83,27 +89,27 @@ export function Footer() {
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-accent flex-shrink-0" />
                 <a
-                  href="https://wa.me/393401234567"
+                  href="https://wa.me/393936631959"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  Contatta via WhatsApp
+                  +39 393 663 1959
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-accent flex-shrink-0" />
                 <a
-                  href="mailto:info@opendance.it"
+                  href="mailto:info@opendanceasd.it"
                   className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  info@opendance.it
+                  info@opendanceasd.it
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Clock size={20} className="text-accent mt-1 flex-shrink-0" />
                 <div className="text-muted-foreground">
-                  Lun - Ven: 18:00 - 22:00
+                  Lun - Sab: 9:00 - 23:00
                   <br />
-                  Sab: 15:00 - 19:00
+                  Dom: 17:00 - 23:00
                 </div>
               </li>
             </ul>
