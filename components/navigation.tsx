@@ -16,6 +16,12 @@ export function Navigation() {
     { href: "/contatti", label: "Contatti" },
   ]
 
+  const handleSocioClick = () => {
+    const phoneNumber = "393936631959"
+    const message = encodeURIComponent("Ciao! Vorrei avere informazioni su come diventare socio.")
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+  }
+
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container mx-auto px-4 lg:px-8">
@@ -46,7 +52,12 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:block absolute right-0">
-            <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Diventa Socio</Button>
+            <Button 
+              onClick={handleSocioClick}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
+              Diventa Socio
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -72,7 +83,12 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Button className="w-full mt-4 bg-primary hover:bg-primary/90">Diventa Socio</Button>
+            <Button 
+              onClick={handleSocioClick}
+              className="w-full mt-4 bg-primary hover:bg-primary/90"
+            >
+              Diventa Socio
+            </Button>
           </div>
         )}
       </div>

@@ -9,6 +9,13 @@ import { Card, CardContent } from "@/components/ui/card"
 import Link from "next/link"
 
 export default function HomePage() {
+  
+  const handleSocioClick = () => {
+    const phoneNumber = "393936631959"
+    const message = encodeURIComponent("Ciao! Vorrei sapere come diventare socio.")
+    window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
+  }
+
   return (
     <div className="overflow-x-hidden">
       <Navigation />
@@ -40,11 +47,14 @@ export default function HomePage() {
             </p>
 
             <div className="animate-in slide-in-from-bottom-8 duration-1000 delay-300 fill-mode-both">
-              <Link href="/contatti">
-                <Button size="lg" className="bg-black hover:bg-black/80 text-white transition-transform hover:scale-105">
-                  Come diventare Socio
-                </Button>
-              </Link>
+              {/* MODIFICATO: Apre WhatsApp invece di linkare a contatti */}
+              <Button 
+                size="lg" 
+                onClick={handleSocioClick}
+                className="bg-black hover:bg-black/80 text-white transition-transform hover:scale-105"
+              >
+                Come diventare Socio
+              </Button>
             </div>
           </div>
         </section>
@@ -91,7 +101,8 @@ export default function HomePage() {
                 </div>
 
                 <div className="mt-6">
-                  <Link href="/chi-siamo">
+                  {/* MODIFICATO: Link a Contatti invece che Chi Siamo */}
+                  <Link href="/contatti">
                     <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
                       Scopri di più
                       <ArrowRight className="ml-2 h-4 w-4" />
@@ -149,9 +160,13 @@ export default function HomePage() {
                   Oltre 450 soci che ballano con noi, una comunità che cresce giorno dopo giorno. Vieni a conoscerci e
                   diventa parte della famiglia Open Dance!
                 </p>
-                <Link href="/chi-siamo">
-                  <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">Unisciti a Noi</Button>
-                </Link>
+                {/* MODIFICATO: Unisciti a Noi ora apre WhatsApp come Diventa Socio */}
+                <Button 
+                  onClick={handleSocioClick}
+                  className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                >
+                  Unisciti a Noi
+                </Button>
               </div>
             </div>
           </div>
@@ -197,7 +212,8 @@ export default function HomePage() {
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Ritmo e musicalità</span></li>
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Portamento</span></li>
                   </ul>
-                  <Link href="/corsi">
+                  {/* MODIFICATO: Link a Contatti */}
+                  <Link href="/contatti">
                     <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center">
                       <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                     </Button>
@@ -220,7 +236,8 @@ export default function HomePage() {
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Stile personale</span></li>
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Coreografie</span></li>
                   </ul>
-                  <Link href="/corsi">
+                  {/* MODIFICATO: Link a Contatti */}
+                  <Link href="/contatti">
                     <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center">
                       <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                     </Button>
@@ -243,7 +260,8 @@ export default function HomePage() {
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Preparazione gare</span></li>
                     <li className="flex items-start gap-2"><span className="text-primary mt-0.5">•</span><span>Socializzazione</span></li>
                   </ul>
-                  <Link href="/corsi">
+                  {/* MODIFICATO: Link a Contatti */}
+                  <Link href="/contatti">
                     <Button variant="outline" size="sm" className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground bg-transparent h-auto min-h-[40px] py-2 px-4 flex items-center justify-center">
                       <span className="text-balance leading-tight">Richiedi info per partecipare →</span>
                     </Button>
@@ -386,7 +404,8 @@ export default function HomePage() {
             </div>
 
             <div className="flex gap-4 justify-center">
-              <Link href="/corsi">
+              {/* MODIFICATO: Scopri -> Contatti */}
+              <Link href="/contatti">
                 <Button size="lg" className="bg-white text-[#D4AF37] hover:bg-white/90 font-semibold">
                   Scopri
                 </Button>

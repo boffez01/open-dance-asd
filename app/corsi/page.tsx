@@ -6,6 +6,7 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Users, Music, Star, Trophy, TrendingUp } from "lucide-react"
+import Link from "next/link" // Import Link
 
 export default function CorsiPage() {
   const courses = [
@@ -43,10 +44,9 @@ export default function CorsiPage() {
     },
   ]
 
-  // Funzione per aprire WhatsApp
   const handleContactClick = () => {
-    const phoneNumber = "393401234567" // Sostituisci col numero reale
-    const message = encodeURIComponent("Ciao! Vorrei informazioni sui corsi.")
+    const phoneNumber = "393936631959"
+    const message = encodeURIComponent("Ciao! Vorrei avere un colloquio per l'agonismo.")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
 
@@ -125,13 +125,15 @@ export default function CorsiPage() {
                     </div>
 
                     <div className="p-8 pt-0 mt-auto">
-                      <Button
-                        className="w-full"
-                        variant="outline"
-                        onClick={handleContactClick}
-                      >
-                        Richiedi info
-                      </Button>
+                      {/* MODIFICATO: Link a Contatti invece di WhatsApp */}
+                      <Link href="/contatti" className="w-full block">
+                        <Button
+                          className="w-full"
+                          variant="outline"
+                        >
+                          Richiedi info
+                        </Button>
+                      </Link>
                     </div>
                   </Card>
                 )
@@ -197,6 +199,7 @@ export default function CorsiPage() {
             </div>
 
             <div className="mt-12 text-center">
+                {/* Questo pulsante può rimanere WhatsApp dato che è per un colloquio specifico, o cambiare a Contatti se preferisci uniformità totale. Lo lascio WhatsApp come "Call to Action" forte. */}
                 <Button size="lg" onClick={handleContactClick} className="px-8 font-semibold shadow-lg hover:shadow-xl transition-all">
                     Contatta i Maestri per un colloquio
                 </Button>

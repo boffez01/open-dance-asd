@@ -17,21 +17,21 @@ export default function ChiSiamoPage() {
   const foundersImages = [
     {
       src: "/images/gallery/giorgio_moglie_7.jpg",
-      alt: "Giorgio e Cristina - Eleganza in bianco e nero",
+      alt: "Giorgio e Cristina in posa",
     },
     {
       src: "/images/gallery/giorgio_moglie_6.jpg",
-      alt: "Giorgio e Cristina - Abito fucsia in gara",
+      alt: "Giorgio e Cristina in gara",
     },
     {
       src: "/images/gallery/giorgio_molgie_5.jpeg.jpg",
-      alt: "Giorgio e Cristina - Passo di danza elegante",
+      alt: "Giorgio e Cristina - Performance",
     },
     {
       src: "/images/gallery/giorgio_moglie_4.jpg",
-      alt: "Giorgio e Cristina - Abito bianco con piume",
+      alt: "Giorgio e Cristina - Eleganza",
     },
-    // Le tue foto originali mantenute
+    // Le tue foto originali
     {
       src: "/images/giorgio-moglie.jpeg",
       alt: "Giorgio e sua moglie con trofeo Open Dance",
@@ -54,15 +54,15 @@ export default function ChiSiamoPage() {
     },
   ]
 
-  // Animazione automatica ogni 2 SECONDI (modificato da 4000 a 2000)
+  // Animazione automatica ogni 2 SECONDI (2000ms)
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % foundersImages.length)
-    }, 2000) // 2000ms = 2 secondi
+    }, 2000)
     return () => clearInterval(timer)
   }, [foundersImages.length])
 
-  // LISTA AGONISTI (Invariata come nel tuo codice originale)
+  // LISTA AGONISTI (Invariata)
   const agonisti = [
     {
       name: "Claudio Bertoldi e Simonetta Sironi",
@@ -134,12 +134,14 @@ export default function ChiSiamoPage() {
     setCurrentImageIndex((prev) => (prev - 1 + foundersImages.length) % foundersImages.length)
   }
 
+  // Funzione per aprire WhatsApp
   const handleContactClick = () => {
-    const phoneNumber = "393401234567"
+    const phoneNumber = "393401234567" // Sostituisci con il numero reale
     const message = encodeURIComponent("Ciao! Vorrei avere informazioni su Open Dance ASD.")
     window.open(`https://wa.me/${phoneNumber}?text=${message}`, "_blank")
   }
 
+  // Varianti Animazioni Framer Motion
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -269,7 +271,7 @@ export default function ChiSiamoPage() {
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
                 
-                {/* TESTO */}
+                {/* TESTO COMPLETO E FORMATTATO */}
                 <motion.div 
                   initial="hidden"
                   whileInView="visible"
@@ -291,10 +293,19 @@ export default function ChiSiamoPage() {
                       professionalità e l’accoglienza siano le note distintive.
                     </p>
                     <div className="p-4 bg-white/50 border-l-4 border-primary rounded-r-lg my-4 shadow-sm italic text-foreground/90 font-medium">
-                      "Il conseguimento del diploma di Maestri, il continuo processo di studi ed 
-                      aggiornamenti, oltre all’esperienza acquisita, rendono la Open Dance il luogo ideale in cui muovere i 
-                      primi passi di danza e sognare in grande."
+                      "Il conseguimento del diploma di Maestri, il successivo ottenimento di 
+                      abilitazioni in ambito federale, il continuo processo di studi ed 
+                      aggiornamenti, oltre all’esperienza ed alla sensibilità acquisita durante la 
+                      pratica quotidiana, rendono la Open Dance il luogo ideale in cui muovere i 
+                      primi passi di danza e, per chi lo desidera, sognare in grande e puntare al 
+                      raggiungimento di importanti obiettivi in ambito agonistico."
                     </div>
+                    <p>
+                      Da oltre un decennio Open Dance è diventata una vera famiglia per 
+                      centinaia di appassionati, all’interno della quale ogni passo è 
+                      un’opportunità per crescere insieme, condividendo la gioia del 
+                      movimento e della musica.
+                    </p>
                   </motion.div>
 
                   <motion.div variants={fadeInUp} className="pt-6 border-t border-border">
@@ -313,13 +324,13 @@ export default function ChiSiamoPage() {
                       </li>
                       <li className="flex items-start gap-2">
                         <CheckCircle2 className="text-primary mt-0.5 flex-shrink-0" size={16} />
-                        <span>Tecnici di riferimento di Open Dance ASD</span>
+                        <span>Da oltre dieci anni tecnici di riferimento di Open Dance ASD</span>
                       </li>
                     </ul>
                   </motion.div>
                 </motion.div>
 
-                {/* Slideshow Automatico */}
+                {/* Carousel con Animazione di Dissolvenza */}
                 <motion.div 
                   initial={{ opacity: 0, x: 20 }}
                   whileInView={{ opacity: 1, x: 0 }}
@@ -328,17 +339,17 @@ export default function ChiSiamoPage() {
                   className="relative group"
                 >
                   <Card className="overflow-hidden border-2 border-primary/20 bg-background shadow-xl">
-                    <div className="aspect-[3/4] relative overflow-hidden bg-white">
-                      {/* AnimatePresence per la dissolvenza */}
+                    <div className="aspect-[3/4] relative overflow-hidden">
+                      {/* Aggiunta AnimatePresence per gestire la transizione di uscita */}
                       <AnimatePresence mode="wait">
                         <motion.img
                           key={currentImageIndex}
-                          src={foundersImages[currentImageIndex].src}
+                          src={foundersImages[currentImageIndex].src || "/placeholder.svg"}
                           alt={foundersImages[currentImageIndex].alt}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          transition={{ duration: 0.5 }} // Dissolvenza fluida
+                          transition={{ duration: 0.5 }}
                           className="w-full h-full object-cover absolute top-0 left-0"
                         />
                       </AnimatePresence>
@@ -346,19 +357,24 @@ export default function ChiSiamoPage() {
                       {/* Navigation Arrows */}
                       <button
                         onClick={prevImage}
-                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all z-10"
-                        aria-label="Precedente"
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
+                        aria-label="Immagine precedente"
                       >
-                        <ChevronLeft size={24} />
+                        <ChevronLeft className="text-foreground" size={24} />
                       </button>
 
                       <button
                         onClick={nextImage}
-                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-2 rounded-full backdrop-blur-sm transition-all z-10"
-                        aria-label="Successiva"
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-background/90 hover:bg-background p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 z-10"
+                        aria-label="Immagine successiva"
                       >
-                        <ChevronRight size={24} />
+                        <ChevronRight className="text-foreground" size={24} />
                       </button>
+
+                      {/* Image Counter */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-background/90 px-4 py-2 rounded-full text-xs font-medium z-10">
+                        {currentImageIndex + 1} / {foundersImages.length}
+                      </div>
                     </div>
                   </Card>
 
@@ -368,8 +384,8 @@ export default function ChiSiamoPage() {
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`h-2 rounded-full transition-all duration-300 ${
-                          index === currentImageIndex ? "bg-primary w-8" : "bg-primary/30 w-2 hover:bg-primary/50"
+                        className={`w-2 h-2 rounded-full transition-all ${
+                          index === currentImageIndex ? "bg-primary w-8" : "bg-primary/30 hover:bg-primary/50"
                         }`}
                         aria-label={`Vai all'immagine ${index + 1}`}
                       />
@@ -381,7 +397,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* 1. SEZIONE ALLIEVI (Aggiornata con le foto delle feste richieste) */}
+        {/* 1. SEZIONE ALLIEVI (Prima degli agonisti) */}
         <section className="py-16 bg-background">
           <div className="container mx-auto px-4">
             <div className="text-center mb-12">
@@ -395,12 +411,11 @@ export default function ChiSiamoPage() {
 
             <div className="max-w-6xl mx-auto">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                {/* Card 1: Eventi e Feste - FOTO AGGIORNATA */}
                 <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all hover:shadow-md">
                   <div className="aspect-video relative bg-accent/10">
                     <img
-                      src="/images/gallery/gruppo_festa.jpg"
-                      alt="Gruppo festa - Momenti di gioia Open Dance"
+                      src="/images/gallery/gruppo_cena.jpeg"
+                      alt="Gruppo cena - Eventi e Feste Open Dance"
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -413,7 +428,6 @@ export default function ChiSiamoPage() {
                   </CardContent>
                 </Card>
 
-                {/* Card 2: Lezioni di Gruppo */}
                 <Card className="overflow-hidden border border-primary/20 hover:border-primary/40 transition-all hover:shadow-md">
                   <div className="aspect-video relative bg-accent/10">
                     <img
@@ -432,7 +446,6 @@ export default function ChiSiamoPage() {
                 </Card>
               </div>
 
-              {/* Griglia 3 foto in basso */}
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="overflow-hidden border border-primary/20 hover:shadow-md transition-all">
                   <div className="aspect-square relative bg-accent/10">
@@ -444,14 +457,9 @@ export default function ChiSiamoPage() {
                   </div>
                 </Card>
 
-                {/* Foto centrale aggiornata con un'altra foto della festa */}
                 <Card className="overflow-hidden border border-primary/20 hover:shadow-md transition-all">
                   <div className="aspect-square relative bg-accent/10">
-                    <img 
-                      src="/images/gallery/gruppo_festa_2.jpg" 
-                      alt="Festa di gruppo Open Dance" 
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
-                    />
+                    <img src="/images/corso-gruppo.jpeg" alt="Corso di gruppo" className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" />
                   </div>
                 </Card>
 
@@ -469,7 +477,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* 2. SEZIONE AGONISTI (Dopo gli allievi - LOOP INFINITO) */}
+        {/* 2. SEZIONE AGONISTI (Dopo gli allievi) */}
         <section className="py-16 bg-accent/5 overflow-hidden">
           <div className="container mx-auto px-4 mb-12">
             <div className="text-center">
@@ -489,6 +497,7 @@ export default function ChiSiamoPage() {
                   <div key={index} className="flex-shrink-0 w-[280px]">
                     <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
                       <div className="aspect-[3/4] relative">
+                        {/* Se l'immagine non carica, controlliamo che il percorso nel file corrisponda esattamente */}
                         <img
                           src={coppia.image}
                           alt={coppia.name}
@@ -574,7 +583,7 @@ export default function ChiSiamoPage() {
           </div>
         </section>
 
-        {/* FAQ Section */}
+        {/* FAQ Section - DESIGN CON ANIMAZIONI & ORARI AGGIORNATI */}
         <section className="py-20 bg-background">
           <div className="container mx-auto px-4 max-w-5xl">
             <motion.div 
