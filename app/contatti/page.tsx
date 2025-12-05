@@ -78,7 +78,7 @@ export default function ContattiPage() {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-card-foreground">Email</h3>
                 <a
-                  href="mailto:info@opendanceasd.it"
+                  href="mailto:opendance749@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors break-all"
                 >
                   info@opendanceasd.it
