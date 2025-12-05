@@ -33,8 +33,112 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "DanceSchool",
+    name: "Open Dance ASD",
+    description:
+      "Scuola di ballo liscio e da sala, dall'avviamento all'agonismo. Maestri pluripremiati a Cazzago San Martino (BS).",
+    url: "https://www.opendanceasd.it",
+    logo: "https://www.opendanceasd.it/logo.png",
+    image: "https://www.opendanceasd.it/images/logo-sgranato.jpeg",
+    telephone: "+393936631959",
+    email: "info@opendanceasd.it",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Via S. Bartolomeo, 12",
+      addressLocality: "Cazzago San Martino",
+      addressRegion: "BS",
+      postalCode: "25046",
+      addressCountry: "IT",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "45.61863",
+      longitude: "9.98623",
+    },
+    areaServed: [
+      {
+        "@type": "City",
+        name: "Cazzago San Martino",
+      },
+      {
+        "@type": "City",
+        name: "Brescia",
+      },
+      {
+        "@type": "City",
+        name: "Palazzolo sull'Oglio",
+      },
+      {
+        "@type": "Place",
+        name: "Val Camonica",
+      },
+      {
+        "@type": "City",
+        name: "Montisola",
+      },
+      {
+        "@type": "City",
+        name: "Orzinuovi",
+      },
+      {
+        "@type": "City",
+        name: "Rezzato",
+      },
+      {
+        "@type": "Place",
+        name: "Franciacorta",
+      },
+      {
+        "@type": "Place",
+        name: "Lago d'Iseo",
+      },
+      {
+        "@type": "Place",
+        name: "Provincia di Brescia",
+      },
+    ],
+    founder: [
+      {
+        "@type": "Person",
+        name: "Giorgio Lagorio",
+        jobTitle: "Maestro di Ballo - Campione Italiano",
+      },
+      {
+        "@type": "Person",
+        name: "Cristina Spinoni",
+        jobTitle: "Maestra di Ballo - Campionessa Italiana",
+      },
+    ],
+    foundingDate: "2015",
+    sameAs: [
+      "https://www.facebook.com/p/OPEN-DANCE-ASD-100058870162755/",
+      "https://www.instagram.com/opendanceasd/",
+      "https://www.tiktok.com/@opendanceasd",
+    ],
+    priceRange: "Associazione Sportiva Dilettantistica",
+    openingHoursSpecification: [
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+        opens: "09:00",
+        closes: "23:00",
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        dayOfWeek: "Sunday",
+        opens: "17:00",
+        closes: "23:00",
+      },
+    ],
+  }
+
   return (
     <html lang="it" className={`${playfair.variable}`}>
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      </head>
       <body className={`font-sans antialiased`}>
         {children}
         <CookieConsent />

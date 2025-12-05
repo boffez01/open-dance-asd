@@ -4,6 +4,19 @@ import { WhatsAppButton } from "@/components/whatsapp-button"
 import { Card } from "@/components/ui/card"
 import { MapPin, Phone, Mail, Clock } from "lucide-react"
 
+export const metadata = {
+  title: "Contatti - Open Dance ASD Cazzago | Raggiungi la Provincia di Brescia",
+  description:
+    "Situati a Cazzago San Martino, in posizione strategica tra lago d'Iseo e Val Camonica. Facilmente raggiungibili da Palazzolo, Franciacorta, Orzinuovi, Rezzato e tutta la provincia di Brescia. Contattaci per informazioni sui corsi.",
+  keywords:
+    "contatti Open Dance, dove siamo Cazzago, scuola ballo Brescia indirizzo, raggiungere da Val Camonica, come arrivare Franciacorta",
+  openGraph: {
+    title: "Vieni a Trovarci - Posizione Strategica in Provincia",
+    description: "Via S. Bartolomeo 12, Cazzago San Martino. Punto di riferimento comodo per tutta la provincia.",
+    type: "website",
+  },
+}
+
 export default function ContattiPage() {
   return (
     <>
@@ -15,14 +28,14 @@ export default function ContattiPage() {
         <section className="relative h-[40vh] flex items-center justify-center overflow-hidden">
           {/* Overlay scuro per leggere meglio il testo */}
           <div className="absolute inset-0 bg-black/40 z-10" />
-          
+
           {/* IMMAGINE DI SFONDO CORRETTA */}
           <img
             src="/images/gallery/banner_foto.jpg"
             alt="Sede Open Dance"
             className="absolute inset-0 w-full h-full object-cover"
           />
-          
+
           <div className="relative z-20 text-center text-white px-4">
             <h1 className="text-5xl md:text-6xl font-serif font-bold drop-shadow-lg">Contattaci</h1>
           </div>

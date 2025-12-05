@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Clock, Users, Target, Award, Music, Heart } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+import type { Metadata } from "next"
 
 const coursesData = {
   base: {
@@ -102,6 +103,27 @@ const coursesData = {
   },
 }
 
+export async function generateMetadata({ params }: { params: { id: string } }): Promise<Metadata> {
+  const course = coursesData[params.id as keyof typeof coursesData]
+
+  if (!course) {
+    return {
+      title: "Corso non trovato - Open Dance ASD",
+    }
+  }
+
+  return {
+    title: `${course.title} - Open Dance ASD Brescia | Corsi per Palazzolo, Val Camonica, Franciacorta`,
+    description: `${course.description} Open Dance a Cazzago San Martino è facilmente raggiungibile da Rezzato, Palazzolo, Val Camonica, Franciacorta, Orzinuovi e lago d'Iseo. Maestri pluripremiati per risultati eccellenti.`,
+    keywords: `${course.title}, ballo liscio Brescia, corsi danza Franciacorta, lezioni ballo Palazzolo, scuola Val Camonica`,
+    openGraph: {
+      title: `${course.title} - Raggiungici da tutta la Provincia`,
+      description: `Corso ${course.level}: ${course.description}`,
+      type: "website",
+    },
+  }
+}
+
 export default function CourseDetailPage({ params }: { params: { id: string } }) {
   const course = coursesData[params.id as keyof typeof coursesData]
 
@@ -182,7 +204,7 @@ export default function CourseDetailPage({ params }: { params: { id: string } })
 
               <div>
                 <h2 className="text-2xl font-normal mb-6 flex items-center gap-2">
-                  <Award className="text-primary" size={24} />
+                  <Award className="text-primary flex-shrink-0 mt-1" size={18} />
                   Cosa ottieni
                 </h2>
                 <ul className="space-y-3">
