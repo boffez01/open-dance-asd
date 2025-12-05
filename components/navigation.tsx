@@ -13,6 +13,7 @@ export function Navigation() {
     { href: "/", label: "Home" },
     { href: "/chi-siamo", label: "Chi Siamo" },
     { href: "/corsi", label: "Le Attività" },
+    { href: "/vita-associativa", label: "Vita Associativa" },
     { href: "/contatti", label: "Contatti" },
   ]
 
@@ -52,10 +53,7 @@ export function Navigation() {
           </div>
 
           <div className="hidden md:block absolute right-0">
-            <Button 
-              onClick={handleSocioClick}
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
-            >
+            <Button onClick={handleSocioClick} className="bg-primary hover:bg-primary/90 text-primary-foreground">
               Diventa Socio
             </Button>
           </div>
@@ -83,10 +81,7 @@ export function Navigation() {
                 {link.label}
               </Link>
             ))}
-            <Button 
-              onClick={handleSocioClick}
-              className="w-full mt-4 bg-primary hover:bg-primary/90"
-            >
+            <Button onClick={handleSocioClick} className="w-full mt-4 bg-primary hover:bg-primary/90">
               Diventa Socio
             </Button>
           </div>
