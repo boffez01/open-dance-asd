@@ -243,7 +243,7 @@ export default function ChiSiamoClient() {
                     Scopri i Corsi
                   </Button>
                 </a>
-                <a href="/galleria">
+                <a href="/vita-associativa">
                   <Button
                     variant="outline"
                     size="lg"

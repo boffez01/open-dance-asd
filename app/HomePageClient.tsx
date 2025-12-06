@@ -460,7 +460,7 @@ export function HomePageClient() {
                   Scopri
                 </Button>
               </Link>
-              <Link href="/galleria">
+              <Link href="/vita-associativa">
                 <Button
                   variant="outline"
                   size="lg"
