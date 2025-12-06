@@ -81,7 +81,7 @@ export default function ContattiPage() {
                   href="mailto:opendance749@gmail.com"
                   className="text-muted-foreground hover:text-primary transition-colors break-all"
                 >
-                  info@opendanceasd.it
+                  opendance749@gmail.com
                 </a>
               </Card>
 
