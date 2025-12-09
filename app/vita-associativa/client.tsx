@@ -11,6 +11,12 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Concorso Telethon 2025",
+      date: "6-7-8 Dicembre 2025",
+      image: "/images/torneo-8-dicembre.jpeg",
+      description: "29° Concorso Telethon e 30° Concorso Tony Rose a Castellanza: ballare per una buona causa.",
+    },
+    {
       title: "Campionato Italiano Rimini 2025",
       date: "Gennaio 2025",
       image: "/images/foto-gruppo-agonisti-1.jpg",
