@@ -493,11 +493,11 @@ export default function ChiSiamoClient() {
             {agonisti.map((coppia, index) => (
               <div key={index} className="flex-shrink-0 w-[260px] snap-center">
                 <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
-                  <div className="aspect-[3/4] relative">
+                  <div className="aspect-[3/4] relative bg-muted">
                     <Image
                       src={coppia.image || "/placeholder.svg"}
                       alt={coppia.name}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-contain"
                       fill
                     />
                   </div>
@@ -517,11 +517,11 @@ export default function ChiSiamoClient() {
                 {agonisti.map((coppia, index) => (
                   <div key={index} className="flex-shrink-0 w-[280px]">
                     <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
-                      <div className="aspect-[3/4] relative">
+                      <div className="aspect-[3/4] relative bg-muted">
                         <Image
                           src={coppia.image || "/placeholder.svg"}
                           alt={coppia.name}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain"
                           fill
                         />
                       </div>
@@ -538,11 +538,11 @@ export default function ChiSiamoClient() {
                 {agonisti.map((coppia, index) => (
                   <div key={`dup-${index}`} className="flex-shrink-0 w-[280px]">
                     <Card className="overflow-hidden border-2 border-primary/20 h-full hover:shadow-lg transition-shadow bg-card">
-                      <div className="aspect-[3/4] relative">
+                      <div className="aspect-[3/4] relative bg-muted">
                         <Image
                           src={coppia.image || "/placeholder.svg"}
                           alt={coppia.name}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-contain"
                           fill
                         />
                       </div>
