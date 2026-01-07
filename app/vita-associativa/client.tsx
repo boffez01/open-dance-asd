@@ -11,6 +11,13 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Lazise Dance Sport Trophy",
+      date: "4-5-6 Gennaio 2026",
+      image: "/images/lazise-dance-sport-trophy.jpg",
+      description:
+        "Prestigiosa competizione nazionale a Lazise presso Hotel Parchi del Garda con i nostri agonisti nel balletto sportivo mondiale.",
+    },
+    {
       title: "Concorso Telethon 2025",
       date: "6-7-8 Dicembre 2025",
       image: "/images/torneo-8-dicembre.jpeg",

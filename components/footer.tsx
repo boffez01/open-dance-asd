@@ -139,6 +139,7 @@ export function Footer() {
           <p className="text-xs text-muted-foreground mt-2">
             Associazione Sportiva Dilettantistica iscritta al Registro CONI
           </p>
+          <p className="text-xs text-muted-foreground mt-1">C.F.: 91029550174</p>
           <p className="text-xs text-muted-foreground mt-3">
             Sito costruito da{" "}
             <a
