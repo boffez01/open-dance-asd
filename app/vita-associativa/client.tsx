@@ -11,6 +11,13 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Made in Italy Dance Cup",
+      date: "18 Gennaio 2026",
+      image: "/images/made-in-italy-dance-cup.jpg",
+      description:
+        "Competizione di danza sportiva a Turbigo (MI) organizzata da PromoDanza e Mettiti in Ballo! con il patrocinio A.S.C.",
+    },
+    {
       title: "Lazise Dance Sport Trophy",
       date: "4-5-6 Gennaio 2026",
       image: "/images/lazise-dance-sport-trophy.jpg",
