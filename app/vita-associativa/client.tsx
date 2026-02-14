@@ -11,6 +11,13 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Seconda Tappa di Coppa Italia",
+      date: "7-8 Febbraio 2026",
+      image: "/images/coppa-italia-2026.jpg",
+      description:
+        "7/02 Danze Standard a Quiliano (SV) e 8/02 Danze Nazionali a Castellanza (VA) - FIDESM Coppa Italia 2025/2026, 2^ Tappa di Circuito.",
+    },
+    {
       title: "Made in Italy Dance Cup",
       date: "18 Gennaio 2026",
       image: "/images/made-in-italy-dance-cup.jpg",
