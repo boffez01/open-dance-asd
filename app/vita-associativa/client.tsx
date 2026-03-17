@@ -11,6 +11,13 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Campionato Regionale Lombardia e Coppa Regione",
+      date: "7-8 Marzo 2026",
+      image: "/images/campionato_regionale_lombardia.jpeg",
+      description:
+        "Classe Divulgativa e Promozionale D presso Soevis Arena a Castellanza (VA) - Danze Stile Nazionale, Tradizionale e Internazionale. FIDESM.",
+    },
+    {
       title: "Seconda Tappa di Coppa Italia",
       date: "7-8 Febbraio 2026",
       image: "/images/coppa-italia-2026.jpg",
