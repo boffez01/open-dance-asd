@@ -11,6 +11,13 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Pordenone Open Festival",
+      date: "21-22 Marzo 2026",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-31%20at%2014.37.48-QnbMlCMfLWJjekuQOwv7nIHZDVfQmj.jpeg",
+      description:
+        "I nostri atleti protagonisti al Pordenone Open Festival a Pordenone - Un weekend di emozioni e grandi performance nelle danze standard e latine.",
+    },
+    {
       title: "Campionato Regionale Lombardia e Coppa Regione",
       date: "7-8 Marzo 2026",
       image: "/images/campionato_regionale_lombardia.jpeg",
