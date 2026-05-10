@@ -11,6 +11,20 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "Italian Star Ball",
+      date: "24-25-26 Aprile 2026",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/italian_star_ball-DRiCiP8lNnvBzZ8xjonAYvNUrvNlMJ.jpeg",
+      description:
+        "Standard, Latini e Solo Latin presso Palaubroker a Bassano del Grappa. Una competizione internazionale di alto livello.",
+    },
+    {
+      title: "Pordenone Open Festival",
+      date: "21-22 Marzo 2026",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/pordenone-AdGZBsQ1xw9SYsD9y5vhI4QS0sVtYC.jpeg",
+      description:
+        "I nostri atleti protagonisti al Pordenone Open Festival. Grandi emozioni e risultati eccellenti per la squadra Open Dance.",
+    },
+    {
       title: "Campionato Regionale Lombardia e Coppa Regione",
       date: "7-8 Marzo 2026",
       image: "/images/campionato_regionale_lombardia.jpeg",
@@ -202,7 +216,7 @@ export default function VitaAssociativaClient() {
                   Vieni a Conoscerci
                 </Button>
               </a>
-              <a href="https://www.instagram.com/opendanceasd/" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/asdopendance?igsh=NDF1Mml1ZXd2dTlv" target="_blank" rel="noopener noreferrer">
                 <Button
                   size="lg"
                   variant="outline"
