@@ -375,7 +375,7 @@ export function HomePageClient() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                   {/* Facebook */}
                   <a
-                    href="https://www.facebook.com/p/OPEN-DANCE-ASD-100058870162755/"
+                    href="https://www.facebook.com/profile.php?id=61580807607809"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-4 p-6 rounded-lg bg-accent/5 hover:bg-accent/10 transition-all hover:scale-105 group"
@@ -391,7 +391,7 @@ export function HomePageClient() {
 
                   {/* Instagram */}
                   <a
-                    href="https://www.instagram.com/opendanceasd/"
+                    href="https://www.instagram.com/asdopendance?igsh=NDF1Mml1ZXd2dTlv"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex flex-col items-center gap-4 p-6 rounded-lg bg-accent/5 hover:bg-accent/10 transition-all hover:scale-105 group"

@@ -29,7 +29,7 @@ export function Footer() {
             </p>
             <div className="flex gap-3">
               <a
-                href="https://www.facebook.com/p/OPEN-DANCE-ASD-100058870162755/"
+                href="https://www.facebook.com/profile.php?id=61580807607809"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors"
@@ -37,7 +37,7 @@ export function Footer() {
                 <Facebook size={20} className="text-accent" />
               </a>
               <a
-                href="https://www.instagram.com/opendanceasd/"
+                href="https://www.instagram.com/asdopendance?igsh=NDF1Mml1ZXd2dTlv"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-accent/10 rounded-full flex items-center justify-center hover:bg-accent/20 transition-colors"
