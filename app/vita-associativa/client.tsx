@@ -11,6 +11,20 @@ import Image from "next/image"
 export default function VitaAssociativaClient() {
   const competitions = [
     {
+      title: "44° Trofeo Città di Fontanafredda",
+      date: "Giugno 2025",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/danza_11_06_02-LjlARMmE17ZHoJMjcKFTpF5k67hJKv.jpeg",
+      description:
+        "Competizione OPEN nazionale - 44° Trofeo di Danza Sportiva Città di Fontanafredda (Pordenone). Le nostre coppie protagoniste sulla pista.",
+    },
+    {
+      title: "Syllabus Cup & Star Cup",
+      date: "Stagione 2025",
+      image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/danza_11_06-UPXKwGWlXDyA5TCMnhZyWNrIiHUQ78.jpeg",
+      description:
+        "I momenti più belli della squadra Open Dance tra Syllabus Cup e Star Cup: sorrisi, eleganza e tanti risultati di squadra.",
+    },
+    {
       title: "Italian Star Ball",
       date: "24-25-26 Aprile 2026",
       image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/italian_star_ball-DRiCiP8lNnvBzZ8xjonAYvNUrvNlMJ.jpeg",
