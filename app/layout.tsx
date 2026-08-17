@@ -4,6 +4,7 @@ import { Playfair_Display } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { CookieConsent } from "@/components/cookie-consent"
+import { PromoPopup } from "@/components/promo-popup"
 import "./globals.css"
 
 const playfair = Playfair_Display({
@@ -142,6 +143,7 @@ export default function RootLayout({
       </head>
       <body className={`font-sans antialiased`}>
         {children}
+        <PromoPopup />
         <CookieConsent />
         <Analytics />
         <SpeedInsights />
