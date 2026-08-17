@@ -81,13 +81,13 @@ export function PromoPopup() {
         </button>
 
         {/* Left column: poster image */}
-        <div className="relative h-56 w-full shrink-0 md:h-auto md:w-1/2">
+        <div className="relative aspect-[3/4] w-full shrink-0 md:aspect-auto md:h-auto md:w-1/2">
           <Image
             src="/locandina-promo.jpg"
             alt="Locandina Open Dance - Lezioni di ballo e danza"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover"
+            className="object-contain md:object-cover"
             priority
           />
         </div>
