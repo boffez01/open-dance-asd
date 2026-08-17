@@ -69,13 +69,13 @@ export function PromoPopup() {
       aria-labelledby="promo-title"
     >
       <div
-        className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-2xl bg-[oklch(0.99_0.005_85)] shadow-2xl md:flex-row"
+        className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-y-auto overscroll-contain rounded-2xl bg-[oklch(0.99_0.005_85)] shadow-2xl md:flex-row md:overflow-hidden"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           onClick={close}
           aria-label="Chiudi"
-          className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-black/40 text-white transition-colors hover:bg-black/70 md:bg-white/70 md:text-foreground md:hover:bg-white"
+          className="fixed right-6 top-6 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-black/50 text-white transition-colors hover:bg-black/70 md:absolute md:right-3 md:top-3 md:bg-white/70 md:text-foreground md:hover:bg-white"
         >
           <X className="h-5 w-5" />
         </button>
@@ -93,7 +93,7 @@ export function PromoPopup() {
         </div>
 
         {/* Right column: content */}
-        <div className="flex w-full flex-col overflow-y-auto p-6 md:w-1/2 md:p-8">
+        <div className="flex w-full flex-col p-6 md:w-1/2 md:overflow-y-auto md:p-8">
           <h2 id="promo-title" className="font-serif text-2xl font-bold leading-tight text-foreground md:text-3xl">
             Lunedì 14 settembre ripartono i nostri corsi!
           </h2>
